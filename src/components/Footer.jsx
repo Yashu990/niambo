@@ -13,8 +13,10 @@ const footerLinks = {
         { label: 'Innovation', path: '/innovation' },
     ],
     Media: [
+        { label: 'Blog', path: '/blog' },
+        { label: 'Market Updates', path: '/news' },
+        { label: 'Resources', path: '/resources' },
         { label: 'Podcast Episodes', path: '/podcast' },
-        { label: 'Contact', path: '/contact' },
     ],
 }
 
@@ -26,14 +28,12 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
                     {/* Brand */}
                     <div className="lg:col-span-2">
-                        <Link to="/" className="flex items-center mb-4 w-fit">
-                            <div className="bg-white rounded-lg px-3 py-1 flex items-center">
-                                <img
-                                    src="/niambio-logo.jpg"
-                                    alt="NIAMBIO Logo"
-                                    className="h-7 w-auto object-contain"
-                                />
-                            </div>
+                        <Link to="/" className="flex items-center mb-6 group w-fit">
+                            <img
+                                src="/niambio-logo.png"
+                                alt="NIAMBIO Logo"
+                                className="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-all duration-300 drop-shadow-sm brightness-110"
+                            />
                         </Link>
                         <p className="text-white/50 text-sm leading-relaxed max-w-xs mb-5">
                             Life Sciences Innovation Platform connecting experts, innovation, and venture capital

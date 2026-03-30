@@ -8,6 +8,10 @@ import PodcastPage from './pages/PodcastPage'
 import InnovationPage from './pages/InnovationPage'
 import TeamPage from './pages/TeamPage'
 import ContactPage from './pages/ContactPage'
+import BlogPage from './pages/BlogPage'
+import NewsPage from './pages/NewsPage'
+import ResourcesPage from './pages/ResourcesPage'
+import BlogPostDetail from './pages/BlogPostDetail'
 import ScrollToTop from './components/ScrollToTop'
 
 function App() {
@@ -24,6 +28,10 @@ function App() {
             <Route path="/innovation" element={<InnovationPage />} />
             <Route path="/team" element={<TeamPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogPostDetail />} />
+            <Route path="/news" element={<NewsPage />} />
+            <Route path="/resources" element={<ResourcesPage />} />
           </Routes>
         </main>
         <Footer />

@@ -1,13 +1,26 @@
 import React, { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown, Rocket, BookOpen, Newspaper, Users, Mail, Laptop, HeartPulse, Mic } from 'lucide-react'
 
-const navItems = [
+const navigation = [
     { label: 'Home', path: '/' },
-    { label: 'Consulting', path: '/consulting' },
-    { label: 'Podcast', path: '/podcast' },
-    { label: 'Innovation', path: '/innovation' },
+    {
+        label: 'Ecosystem',
+        children: [
+            { label: 'Consulting', path: '/consulting', desc: 'Strategic expert guidance', icon: Rocket },
+            { label: 'Innovation', path: '/innovation', desc: 'Accelerate bio-tech', icon: HeartPulse },
+            { label: 'Podcast', path: '/podcast', desc: 'Precision Pulse episodes', icon: Mic },
+        ]
+    },
+    {
+        label: 'Insights',
+        children: [
+            { label: 'Blog', path: '/blog', desc: 'Deep industry dives', icon: BookOpen },
+            { label: 'Market Updates', path: '/news', desc: 'Latest sector news', icon: Newspaper },
+            { label: 'Resources', path: '/resources', desc: 'Toolkits & Whitepapers', icon: Laptop },
+        ]
+    },
     { label: 'Team', path: '/team' },
     { label: 'Contact', path: '/contact' },
 ]
@@ -15,10 +28,10 @@ const navItems = [
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false)
     const [mobileOpen, setMobileOpen] = useState(false)
+    const [activeDropdown, setActiveDropdown] = useState(null)
     const navigate = useNavigate()
     const location = useLocation()
 
-    /* Always show bg on inner pages; on Home only show on scroll */
     const isHome = location.pathname === '/'
     const hasBg = !isHome || scrolled
 
@@ -28,44 +41,98 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', onScroll)
     }, [])
 
-    /* Close mobile menu on route change */
-    useEffect(() => { setMobileOpen(false) }, [location.pathname])
+    useEffect(() => { setMobileOpen(false); setActiveDropdown(null) }, [location.pathname])
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${hasBg
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${hasBg
                     ? 'bg-navy/90 backdrop-blur-md shadow-lg border-b border-white/10'
                     : 'bg-transparent'
                 }`}
         >
             <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
                 {/* Logo */}
-                <Link to="/" className="flex items-center flex-shrink-0">
-                    <div className="bg-white rounded-lg px-3 py-1 flex items-center">
-                        <img
-                            src="/niambio-logo.jpg"
-                            alt="NIAMBIO Logo"
-                            className="h-8 w-auto object-contain"
-                        />
-                    </div>
+                <Link to="/" className="flex items-center flex-shrink-0 group">
+                    <img
+                        src="/niambio-logo.png"
+                        alt="NIAMBIO Logo"
+                        className="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-all duration-300 drop-shadow-sm"
+                    />
                 </Link>
 
                 {/* Desktop nav */}
-                <ul className="hidden lg:flex items-center gap-7">
-                    {navItems.map((item) => (
-                        <li key={item.label}>
-                            <NavLink
-                                to={item.path}
-                                end={item.path === '/'}
-                                id={`nav-${item.label.toLowerCase()}`}
-                                className={({ isActive }) =>
-                                    `text-sm font-medium transition-colors duration-200 relative group pb-0.5 ${isActive ? 'text-teal' : 'text-white/75 hover:text-white'
-                                    }`
-                                }
-                            >
-                                {item.label}
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal transition-all duration-300 group-hover:w-full rounded-full" />
-                            </NavLink>
+                <ul className="hidden lg:flex items-center gap-2">
+                    {navigation.map((item) => (
+                        <li 
+                            key={item.label} 
+                            className="relative group/nav"
+                            onMouseEnter={() => setActiveDropdown(item.label)}
+                            onMouseLeave={() => setActiveDropdown(null)}
+                        >
+                            {item.children ? (
+                                <>
+                                    <button
+                                        className={`flex items-center gap-1.5 px-4 py-2 text-sm font-medium transition-colors ${
+                                            activeDropdown === item.label ? 'text-teal' : 'text-white/70 hover:text-white'
+                                        }`}
+                                    >
+                                        {item.label}
+                                        <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === item.label ? 'rotate-180' : ''}`} />
+                                    </button>
+
+                                    <AnimatePresence>
+                                        {activeDropdown === item.label && (
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                                exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                                transition={{ duration: 0.2 }}
+                                                className="absolute top-full left-1/2 -translate-x-1/2 w-80 pt-4"
+                                            >
+                                                <div className="bg-white rounded-2xl shadow-2xl border border-navy/5 overflow-hidden p-3 grid gap-1">
+                                                    {item.children.map((child) => (
+                                                        <NavLink
+                                                            key={child.label}
+                                                            to={child.path}
+                                                            className={({ isActive }) =>
+                                                                `flex items-start gap-4 p-3 rounded-xl transition-all duration-200 group/item ${
+                                                                    isActive ? 'bg-teal/5' : 'hover:bg-grey'
+                                                                }`
+                                                            }
+                                                        >
+                                                            <div className="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center text-teal group-hover/item:bg-teal group-hover/item:text-white transition-colors">
+                                                                <child.icon size={20} />
+                                                            </div>
+                                                            <div>
+                                                                <div className="text-sm font-bold text-navy mb-0.5">{child.label}</div>
+                                                                <div className="text-[11px] text-navy/40 font-medium leading-tight">{child.desc}</div>
+                                                            </div>
+                                                        </NavLink>
+                                                    ))}
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </>
+                            ) : (
+                                <NavLink
+                                    to={item.path}
+                                    end={item.path === '/'}
+                                    className={({ isActive }) =>
+                                        `px-4 py-2 text-sm font-medium transition-colors relative block ${
+                                            isActive ? 'text-teal' : 'text-white/70 hover:text-white'
+                                        }`
+                                    }
+                                >
+                                    {item.label}
+                                    {location.pathname === item.path && (
+                                        <motion.span 
+                                            layoutId="activeTab"
+                                            className="absolute bottom-1 left-4 right-4 h-0.5 bg-teal rounded-full"
+                                        />
+                                    )}
+                                </NavLink>
+                            )}
                         </li>
                     ))}
                 </ul>
@@ -73,7 +140,6 @@ export default function Navbar() {
                 {/* CTA */}
                 <div className="hidden lg:block">
                     <button
-                        id="nav-cta"
                         onClick={() => navigate('/contact')}
                         className="btn-primary text-sm"
                     >
@@ -83,10 +149,8 @@ export default function Navbar() {
 
                 {/* Mobile hamburger */}
                 <button
-                    id="mobile-menu-toggle"
                     className="lg:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
                     onClick={() => setMobileOpen(!mobileOpen)}
-                    aria-label="Toggle menu"
                 >
                     {mobileOpen ? <X size={22} /> : <Menu size={22} />}
                 </button>
@@ -99,25 +163,48 @@ export default function Navbar() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="lg:hidden bg-navy/95 backdrop-blur-md border-t border-white/10"
+                        className="lg:hidden bg-navy/95 backdrop-blur-md border-t border-white/10 overflow-y-auto max-h-[90vh]"
                     >
-                        <ul className="flex flex-col px-6 py-5 gap-4">
-                            {navItems.map((item) => (
-                                <li key={item.label}>
-                                    <NavLink
-                                        to={item.path}
-                                        end={item.path === '/'}
-                                        onClick={() => setMobileOpen(false)}
-                                        className={({ isActive }) =>
-                                            `font-medium text-base block py-1 transition-colors ${isActive ? 'text-teal' : 'text-white/80 hover:text-white'
-                                            }`
-                                        }
-                                    >
-                                        {item.label}
-                                    </NavLink>
+                        <ul className="flex flex-col px-6 py-6 gap-2">
+                            {navigation.map((item) => (
+                                <li key={item.label} className="py-1">
+                                    {item.children ? (
+                                        <div className="space-y-2">
+                                            <div className="text-[10px] font-bold text-white/30 uppercase tracking-widest pl-1">{item.label}</div>
+                                            <div className="grid gap-2">
+                                                {item.children.map((child) => (
+                                                    <NavLink
+                                                        key={child.label}
+                                                        to={child.path}
+                                                        onClick={() => setMobileOpen(false)}
+                                                        className={({ isActive }) =>
+                                                            `flex items-center gap-3 p-3 rounded-xl transition-colors ${
+                                                                isActive ? 'bg-teal/10 text-teal' : 'text-white/70 hover:bg-white/5'
+                                                            }`
+                                                        }
+                                                    >
+                                                        <child.icon size={18} />
+                                                        <span className="font-medium">{child.label}</span>
+                                                    </NavLink>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <NavLink
+                                            to={item.path}
+                                            onClick={() => setMobileOpen(false)}
+                                            className={({ isActive }) =>
+                                                `block p-3 rounded-xl font-medium transition-colors ${
+                                                    isActive ? 'bg-teal/10 text-teal' : 'text-white/70 hover:bg-white/5'
+                                                }`
+                                            }
+                                        >
+                                            {item.label}
+                                        </NavLink>
+                                    )}
                                 </li>
                             ))}
-                            <li className="pt-2 border-t border-white/10">
+                            <li className="pt-4 border-t border-white/10 mt-2">
                                 <button
                                     onClick={() => { navigate('/contact'); setMobileOpen(false) }}
                                     className="btn-primary text-sm w-full"

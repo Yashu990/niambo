@@ -31,19 +31,17 @@ export default function TeamPage() {
                         className="flex justify-center"
                     >
                         <div className="relative w-[340px] h-[420px]">
-                            <div className="w-full h-full rounded-3xl gradient-bg flex items-center justify-center overflow-hidden relative">
-                                <div className="absolute inset-0 flex items-center justify-center opacity-20">
-                                    {[...Array(5)].map((_, i) => (
-                                        <div key={i} className="absolute rounded-full border border-white"
-                                            style={{ width: 80 + i * 60, height: 80 + i * 60 }} />
-                                    ))}
-                                </div>
-                                <div className="relative z-10 flex flex-col items-center">
-                                    <div className="w-28 h-28 rounded-full glassmorphism flex items-center justify-center mb-4">
-                                        <User size={48} color="white" strokeWidth={1} />
-                                    </div>
-                                    <div className="text-white font-bold text-2xl font-heading">Amit K. Jain</div>
-                                    <div className="text-teal text-sm mt-1">Founder & CEO</div>
+                            <div className="w-full h-full rounded-3xl overflow-hidden relative shadow-2xl">
+                                <img
+                                    src="/ceo-amit-jain.jpg"
+                                    alt="Amit K. Jain – Founder & CEO, NIAMBIO"
+                                    className="w-full h-full object-cover object-top"
+                                />
+                                {/* Gradient overlay at bottom */}
+                                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent" />
+                                <div className="absolute bottom-6 left-0 right-0 text-center">
+                                    <div className="text-white font-bold text-2xl font-heading mb-1">Amit K. Jain</div>
+                                    <div className="text-teal text-sm font-semibold tracking-wide uppercase">Founder & CEO</div>
                                 </div>
                             </div>
                             <motion.div
