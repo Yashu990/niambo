@@ -1,199 +1,261 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { CheckCircle2, ArrowRight, FlaskConical, Mail } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { CheckCircle2, ArrowRight, FlaskConical, Mail, Target, Briefcase, Zap, Globe, Activity } from 'lucide-react'
 
-const slide1 = [
-    'R&D strategy & execution',
-    'Global market strategy',
-    'Regulatory guidance',
-    'Commercial strategy',
-    'Clinical trial support',
-    'Supply chain optimization',
+const therapeuticsCapabilities = [
+    {
+        title: 'Early-Stage Discovery & Clinical Development Strategy',
+        icon: FlaskConical,
+        items: [
+            'Biomarker research to support translational sciences and clinical development teams: Biomarker landscape, prevalence & epidemiology assessment across disease stages',
+            'Clinical Trial Assay development and implementation Strategy (CTA)',
+            'Dx Partnership Strategy & Support: Technology Evaluation, CTA/CDx development vendors selection, CTA/CDx contract negotiation',
+            'Patient identification & clinical site selection',
+            'Global Regulatory Filing Strategy (US/EU/ROW)',
+            'Dx Development & Commercial Evaluation',
+            'Real World Data, Real World Evidence & Tools',
+            'Dx Capability Building: Dx organization structure, skills needed, resource requirement'
+        ]
+    },
+    {
+        title: 'Commercial Readiness Roadmap',
+        icon: Target,
+        items: [
+            'Testing Universe Assessment: Stakeholders, Technology, Methodology, Availability',
+            'Patient Testing Journey',
+            'Market Access Assessment: Reimbursement & Technology Assessment stakeholders, Coding, Coverage, Pricing, Payer preferences and Evidence requirements',
+            'Regulatory Assessment: Stakeholders, Process, Timeline, LDT/IVD, Validation requirements, Test Quality Assurance',
+            'Advisory Boards / Stakeholder Insights',
+            'Primary Market Research (Quantitative/Qualitative)',
+            'Dx Adopters Segmentation',
+            'Drivers & Barriers for Test Availability & Adoption',
+            'Evidence based Strategy',
+            'Dx Commercial Readiness Playbook'
+        ]
+    },
+    {
+        title: 'Implementation Support',
+        icon: Briefcase,
+        items: [
+            'Value Communication Tools: Value Dossier, Value Story, Training Decks, Workshops',
+            'Dx Partnership Evaluation & Advisory: Technology Platform, Testing Lab Capabilities',
+            'Test Sponsorship Strategy',
+            'Awareness, Attitude, Usage Studies (AAU)',
+            'Salesforce enablement',
+            'Real World Data & Adoption Tracking',
+            'Dx Policy Monitoring'
+        ]
+    }
 ]
 
-const slide2 = [
-    'Diagnostic product launch',
-    'IVD regulatory navigation',
-    'Fractional leadership support',
-    'Laboratory operations strategy',
-    'Digital health integration',
-    'CLIA laboratory certification support',
+const diagnosticsCapabilities = [
+    {
+        title: 'Market Assessment & Strategy',
+        icon: Globe,
+        items: [
+            'Market & Opportunity Assessment: Market Sizing & Segment Analysis, Competitor Landscape & Analysis, Stakeholder segmentation, Unmet Needs Analysis & validation',
+            'Technology assessment & roadmap, Opportunity Mapping, Use Cases prioritization',
+            'Demand & Adoption Forecast, Regulatory & Reimbursement Analysis',
+            'Awareness, Attitude, Usage Study (AAU)',
+            'Clinical Development & evidence generation',
+            'Business Development & Portfolio Management: Partner Search, Acquisition & Investment Targets',
+            'Pricing and Business Model Strategies'
+        ]
+    },
+    {
+        title: 'Commercial Launch Strategy',
+        icon: Zap,
+        items: [
+            'Market Access Strategy: Reimbursement Assessment, Regulatory Assessment',
+            'Clinical & Economical Evidence Strategy',
+            'Cost Effectiveness & Budget Impact Analysis',
+            'Value Communication: Global Value Dossier, Internal / External stakeholder engagement and awareness materials',
+            'Partnership(s) Assessment & Advisory',
+            'Commercial Readiness Roadmap',
+            'Primary Market Research (Quantitative, Qualitative)',
+            'Advisory Boards and conference support'
+        ]
+    },
+    {
+        title: 'Global Expansion Support',
+        icon: Activity,
+        items: [
+            'Market Entry Strategies: Competitive Analysis, Regulatory & Market Access barriers, Stakeholder preference & segmentation',
+            'Clinical & economical evidence needs',
+            'New market potential, Market competition, Incumbent displacement strategies',
+            'Awareness, Attitude, Usage Study (AAU)',
+            'Strategic Decision-Making Support: Build / Buy / Partner, People, Process, Resources, and Planning strategy'
+        ]
+    }
 ]
 
 const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.08 } }),
+    hidden: { opacity: 0, y: 30 },
+    visible: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.05 } }),
 }
 
 export default function ConsultingPage() {
     const [activeOption, setActiveOption] = useState('a')
+    const [expandedCategory, setExpandedCategory] = useState(0)
+
+    const activeData = activeOption === 'a' ? therapeuticsCapabilities : diagnosticsCapabilities
+
     return (
-        <>
+        <div className="bg-white">
             {/* ── Page Hero ── */}
-            <section className="pt-44 pb-24 px-6 md:px-12 lg:px-20 gradient-bg relative overflow-hidden min-h-[55vh] flex flex-col justify-center">
-                <div className="absolute top-10 right-10 w-72 h-72 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+            <section className="pt-44 pb-24 px-6 md:px-12 lg:px-20 gradient-bg relative overflow-hidden min-h-[50vh] flex flex-col justify-center">
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl pointer-events-none" />
                 <div className="max-w-7xl mx-auto relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
                         <span className="inline-block px-4 py-1.5 rounded-full glassmorphism text-teal text-sm font-semibold mb-5">
-                            Our Services
+                            Expert Guidance
                         </span>
-                        <h1 className="text-5xl md:text-6xl font-bold font-heading text-white mb-5 leading-tight">
+                        <h1 className="text-5xl md:text-7xl font-bold font-heading text-white mb-6 leading-tight">
                             Strategic Consulting
                         </h1>
-                        <p className="text-white/70 text-xl max-w-2xl leading-relaxed">
-                            Empowering life sciences innovation through data-driven diagnostics development, commercialization, and patient access.
+                        <p className="text-white/70 text-xl max-w-3xl leading-relaxed">
+                            Empowering life sciences innovators with expert guidance across every stage — from R&D through global commercial launch.
                         </p>
                     </motion.div>
                 </div>
             </section>
 
-            {/* ── Main Content ── */}
-            <section className="section-padding bg-white overflow-hidden">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                    {/* Left: visual card */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        className="sticky top-28"
-                    >
-                        <div className="rounded-3xl overflow-hidden gradient-bg flex items-center justify-center relative aspect-square">
-                            <div className="absolute inset-0 flex items-center justify-center opacity-15">
-                                {[1, 2, 3, 4].map((r) => (
-                                    <div key={r} className="absolute rounded-full border border-white"
-                                        style={{ width: r * 100, height: r * 100 }} />
-                                ))}
+            {/* ── Interactive Process Strip ── */}
+            <section className="py-12 bg-navy border-y border-white/10 relative overflow-hidden">
+                <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+                    {[
+                        { label: 'Development', color: '#00C2A8' },
+                        { label: 'Dx / Rx Strategy', color: '#4FC3F7' },
+                        { label: 'Global Launch', color: '#6C63FF' }
+                    ].map((step, i) => (
+                        <div key={i} className="flex items-center gap-4 group">
+                            <div className="w-10 h-10 rounded-full border-2 flex items-center justify-center font-bold text-sm" style={{ borderColor: step.color, color: step.color }}>
+                                {i + 1}
                             </div>
-                            <div className="relative z-10 p-12 flex flex-col items-center gap-6 text-center">
-                                <div className="w-20 h-20 rounded-2xl glassmorphism flex items-center justify-center">
-                                    <FlaskConical size={36} color="#00C2A8" />
-                                </div>
-                                <p className="text-white/80 font-medium text-lg leading-relaxed">
-                                    "Precision consulting to drive your biotech vision from concept to global market."
-                                </p>
-                            </div>
-
-                            <div className="absolute top-8 right-8 glassmorphism rounded-xl px-4 py-3">
-                                <div className="text-white font-bold text-xl font-heading">95%</div>
-                                <div className="text-white/60 text-xs">Success Rate</div>
-                            </div>
-                            <div className="absolute bottom-8 left-8 glassmorphism rounded-xl px-4 py-3">
-                                <div className="text-white font-bold text-xl font-heading">30+</div>
-                                <div className="text-white/60 text-xs">Markets Served</div>
-                            </div>
+                            <span className="text-white/80 font-bold tracking-wide uppercase text-sm group-hover:text-white transition-colors">
+                                {step.label}
+                            </span>
+                            {i < 2 && <ArrowRight className="hidden md:block text-white/20 ml-8" size={20} />}
                         </div>
-                    </motion.div>
-
-                    {/* Right: content */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7, delay: 0.15 }}
-                    >
-                        <h2 className="text-3xl font-bold font-heading text-navy mb-6">What We Do</h2>
-                        <div className="text-navy/70 leading-relaxed space-y-5 mb-10 text-base">
-                            <p>
-                                We work with our clients on defined scope of work to support their product development and commercial launch efforts — from early-stage regulatory navigation through to full market entry and beyond.
-                            </p>
-                            <p>
-                                Our team also supports IVD innovators and manufacturers as full time or fractional senior executives and advisors.
-                            </p>
-                            <p>
-                                Schedule your consultation with our team of subject matter experts today to explore
-                                pioneering solutions tailored to your needs. Our commitment to innovation ensures
-                                you receive the highest level of care and insight throughout every phase of your
-                                bio-product development and launch journey.
-                            </p>
-                        </div>
-
-                        <h3 className="text-xl font-bold font-heading text-navy mb-6">Our Capabilities</h3>
-                        
-                        {/* Capability Options */}
-                        <div className="flex flex-col gap-3 mb-10">
-                            <button 
-                                onClick={() => setActiveOption('a')}
-                                className={`text-left p-4 rounded-xl border transition-all duration-300 ${activeOption === 'a' ? 'bg-teal/5 border-teal border-2' : 'bg-grey border-navy/5 hover:border-teal/30'}`}
-                            >
-                                <div className="flex items-center gap-3">
-                                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${activeOption === 'a' ? 'border-teal' : 'border-navy/20'}`}>
-                                        {activeOption === 'a' && <div className="w-2.5 h-2.5 bg-teal rounded-full" />}
-                                    </div>
-                                    <span className={`font-bold text-sm ${activeOption === 'a' ? 'text-navy' : 'text-navy/60'}`}>
-                                        Companies Developing and Launching Life Savings Therapeutics (Pharmaceuticals/Biotech)
-                                    </span>
-                                </div>
-                            </button>
-
-                            <button 
-                                onClick={() => setActiveOption('b')}
-                                className={`text-left p-4 rounded-xl border transition-all duration-300 ${activeOption === 'b' ? 'bg-teal/5 border-teal border-2' : 'bg-grey border-navy/5 hover:border-teal/30'}`}
-                            >
-                                <div className="flex items-center gap-3">
-                                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${activeOption === 'b' ? 'border-teal' : 'border-navy/20'}`}>
-                                        {activeOption === 'b' && <div className="w-2.5 h-2.5 bg-teal rounded-full" />}
-                                    </div>
-                                    <span className={`font-bold text-sm ${activeOption === 'b' ? 'text-navy' : 'text-navy/60'}`}>
-                                        In Vitro Diagnostics Innovators / Digital Health Companies / CLIA laboratories
-                                    </span>
-                                </div>
-                            </button>
-                        </div>
-
-                        <motion.ul 
-                            key={activeOption}
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            className="space-y-4 mb-10"
-                        >
-                            {(activeOption === 'a' ? slide1 : slide2).map((b, i) => (
-                                <motion.li
-                                    key={b}
-                                    custom={i}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{ once: true }}
-                                    variants={fadeUp}
-                                    className="flex items-center gap-3 text-navy/80 font-medium"
-                                >
-                                    <CheckCircle2 size={20} color="#00C2A8" className="shrink-0" />
-                                    {b}
-                                </motion.li>
-                            ))}
-                        </motion.ul>
-
-                        <Link to="/contact" id="consulting-cta" className="btn-primary inline-flex items-center gap-2">
-                            Book Consultation <ArrowRight size={18} />
-                        </Link>
-                    </motion.div>
+                    ))}
                 </div>
             </section>
 
-            {/* ── CTA strip ── */}
-            <section className="py-16 px-6 bg-grey">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="max-w-3xl mx-auto text-center glassmorphism-light rounded-3xl p-12 border border-teal/20"
-                >
-                    <div className="w-12 h-12 rounded-full bg-teal/10 flex items-center justify-center mx-auto mb-4">
-                        <Mail size={22} color="#00C2A8" />
+            {/* ── Strategy Selection ── */}
+            <section className="section-padding bg-grey">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold font-heading text-navy mb-4">Our Capabilities</h2>
+                        <p className="text-navy/50 max-w-2xl mx-auto">Select your sector to explore our specialized end-to-end strategic support.</p>
                     </div>
-                    <h2 className="text-2xl font-bold font-heading text-navy mb-3">
-                        GET IN TOUCH FOR CONSULTING
-                    </h2>
-                    <p className="text-navy/60 mb-6">
-                        Ready to accelerate your life sciences journey? Reach out and let's build something
-                        extraordinary together.
-                    </p>
-                    <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
-                        Contact Us <ArrowRight size={18} />
-                    </Link>
-                </motion.div>
+
+                    <div className="flex flex-col lg:flex-row gap-4 justify-center mb-16">
+                        <button 
+                            onClick={() => { setActiveOption('a'); setExpandedCategory(0); }}
+                            className={`flex-1 text-left p-6 rounded-2xl border transition-all duration-500 flex flex-col gap-3 ${activeOption === 'a' ? 'bg-white border-teal shadow-xl ring-1 ring-teal/20' : 'bg-white/50 border-navy/5 hover:bg-white hover:border-teal/30'}`}
+                        >
+                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${activeOption === 'a' ? 'bg-teal text-white' : 'bg-navy/5 text-navy/40'}`}>
+                                <FlaskConical size={20} />
+                            </div>
+                            <div>
+                                <h3 className={`font-bold text-lg mb-1 ${activeOption === 'a' ? 'text-navy' : 'text-navy/60'}`}>Pharmaceuticals & Biotech</h3>
+                                <p className="text-navy/40 text-xs">Companies Developing and Launching Life Savings Therapeutics</p>
+                            </div>
+                        </button>
+
+                        <button 
+                            onClick={() => { setActiveOption('b'); setExpandedCategory(0); }}
+                            className={`flex-1 text-left p-6 rounded-2xl border transition-all duration-500 flex flex-col gap-3 ${activeOption === 'b' ? 'bg-white border-teal shadow-xl ring-1 ring-teal/20' : 'bg-white/50 border-navy/5 hover:bg-white hover:border-teal/30'}`}
+                        >
+                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${activeOption === 'b' ? 'bg-teal text-white' : 'bg-navy/5 text-navy/40'}`}>
+                                <Activity size={20} />
+                            </div>
+                            <div>
+                                <h3 className={`font-bold text-lg mb-1 ${activeOption === 'b' ? 'text-navy' : 'text-navy/60'}`}>IVD & Digital Health</h3>
+                                <p className="text-navy/40 text-xs">Innovators, CLIA Laboratories and Digital Health Companies</p>
+                            </div>
+                        </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <AnimatePresence mode="wait">
+                            {activeData.map((category, idx) => (
+                                <motion.div
+                                    key={`${activeOption}-${idx}`}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    transition={{ duration: 0.4, delay: idx * 0.1 }}
+                                    className="bg-white rounded-[2rem] p-8 border border-navy/5 shadow-sm hover:shadow-md transition-all h-full flex flex-col"
+                                >
+                                    <div className="w-12 h-12 rounded-2xl bg-teal/10 flex items-center justify-center text-teal mb-6">
+                                        <category.icon size={24} />
+                                    </div>
+                                    <h4 className="text-xl font-bold font-heading text-navy mb-6 leading-tight min-h-[3.5rem]">
+                                        {category.title}
+                                    </h4>
+                                    <ul className="space-y-4 flex-1">
+                                        {category.items.map((item, i) => (
+                                            <li key={i} className="flex items-start gap-3 text-sm text-navy/70 leading-relaxed">
+                                                <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-teal shrink-0" />
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </motion.div>
+                            ))}
+                        </AnimatePresence>
+                    </div>
+                </div>
             </section>
-        </>
+
+            {/* ── Additional Support ── */}
+            <section className="section-padding bg-white">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="bg-navy rounded-[3rem] p-8 md:p-16 flex flex-col lg:flex-row gap-16 items-center">
+                        <div className="flex-1">
+                            <h2 className="text-3xl md:text-5xl font-bold font-heading text-white mb-8">
+                                Fractional Leadership <span className="gradient-text">& Advisory</span>
+                            </h2>
+                            <div className="space-y-6 text-white/60 text-lg">
+                                <p>
+                                    Our team supports IVD innovators and manufacturers as full-time or fractional senior executives and advisors.
+                                </p>
+                                <p>
+                                    We work with our clients on defined scope of work to support their product development and commercial launch efforts — from early-stage regulatory navigation through to full market entry and beyond.
+                                </p>
+                            </div>
+                            <Link to="/contact" className="mt-10 btn-primary inline-flex items-center gap-2">
+                                Start Your Journey <ArrowRight size={18} />
+                            </Link>
+                        </div>
+                        <div className="w-full lg:w-[400px] h-[400px] rounded-2xl overflow-hidden glassmorphism p-8 flex items-center justify-center">
+                            <div className="text-center">
+                                <Activity size={60} className="text-teal mx-auto mb-6 animate-pulse" />
+                                <div className="text-white font-bold text-2xl mb-2">Subject Matter Expertise</div>
+                                <p className="text-white/40 text-sm">Pioneering solutions tailored to your unique clinical and commercial needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ── Final CTA ── */}
+            <section className="py-24 px-6 bg-grey text-center">
+                <div className="max-w-4xl mx-auto">
+                    <span className="inline-block px-4 py-2 rounded-full bg-teal/10 text-teal text-xs font-bold mb-6 tracking-widest uppercase">Take the Next Step</span>
+                    <h2 className="text-4xl md:text-6xl font-bold font-heading text-navy mb-8">
+                        Ready to accelerate your <span className="gradient-text">Life Sciences</span> journey?
+                    </h2>
+                    <p className="text-navy/60 text-xl mb-12 max-w-2xl mx-auto">
+                        Schedule your consultation with our team of subject matter experts today to explore pioneering solutions.
+                    </p>
+                    <Link to="/contact" className="btn-primary py-4 px-10 text-lg">
+                        Book Your Consultation
+                    </Link>
+                </div>
+            </section>
+        </div>
     )
 }

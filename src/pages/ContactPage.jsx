@@ -146,7 +146,7 @@ export default function ContactPage() {
                                 Skip the form and book a direct consultation with our leadership team. 
                                 We're ready to explore how NIAMBIO can accelerate your bio-innovation journey.
                             </p>
-                            <a href="#" className="btn-primary inline-flex items-center gap-2">
+                            <a href="https://cal.com/akjain" target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">
                                 Book a Meeting <Calendar size={18} />
                             </a>
                         </div>
@@ -154,13 +154,14 @@ export default function ContactPage() {
                         <div className="w-full lg:w-auto flex flex-col items-center gap-4 bg-white p-8 rounded-3xl shadow-xl border border-navy/5">
                             <div className="w-48 h-48 rounded-2xl overflow-hidden bg-grey flex items-center justify-center p-2">
                                 <img 
-                                    src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://niambio.com/schedule" 
+                                    src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://cal.com/akjain" 
                                     alt="Scan to schedule a meeting" 
                                     className="w-full h-full object-contain"
                                 />
                             </div>
                             <div className="text-center">
                                 <div className="text-navy font-bold text-sm">Scan to Book</div>
+                                <a href="https://cal.com/akjain" target="_blank" rel="noopener noreferrer" className="text-teal text-xs mt-1 font-bold block hover:underline">cal.com/akjain</a>
                                 <div className="text-navy/40 text-xs mt-1 font-medium">Open with your camera app</div>
                             </div>
                         </div>
