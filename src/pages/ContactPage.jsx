@@ -125,6 +125,8 @@ export default function ContactPage() {
                         )}
                     </motion.div>
                 </div>
+            </section>
+            
             <section className="pb-32 px-6 bg-white overflow-hidden">
                 <div className="max-w-7xl mx-auto">
                     <motion.div
