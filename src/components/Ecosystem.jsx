@@ -4,15 +4,15 @@ import { motion } from 'framer-motion'
 const cards = [
     {
         image: '/ecosystem-expert.png',
-        title: 'Expert Marketplace',
+        title: 'Strategic Consulting',
         description:
-            'A dynamic platform connecting life science experts with innovators and manufacturers to accelerate product development and commercialization.',
+            'Empowering life sciences innovators with expert guidance across every stage — from R&D through global commercial launch.',
         color: '#00C2A8',
         glow: 'rgba(0,194,168,0.2)',
     },
     {
         image: '/ecosystem-podcast.png',
-        title: 'Precision Pulse Podcast',
+        title: 'The Precision Pulse Podcast',
         description:
             'Exploring precision health, meditation science, diagnostics innovation and lifestyle transformation.',
         color: '#4FC3F7',
@@ -20,9 +20,9 @@ const cards = [
     },
     {
         image: '/ecosystem-bio.png',
-        title: 'Bio-Product Development',
+        title: 'Venture Studio',
         description:
-            'Supporting development and global commercial launch of cutting-edge diagnostic and therapeutic innovations.',
+            'NIAMBIO is evolving beyond traditional consulting by integrating a venture fund with its advisory services and The Precision Pulse podcast—creating a unique ecosystem that identifies, validates, and accelerates innovation in diagnostics, digital health, and precision medicine.',
         color: '#6C63FF',
         glow: 'rgba(108,99,255,0.2)',
     },
@@ -76,11 +76,11 @@ export default function Ecosystem() {
                             className="bg-white rounded-2xl overflow-hidden border border-navy/5 cursor-default group shadow-lg"
                             style={{ boxShadow: `0 10px 40px ${card.glow}` }}
                         >
-                            <div className="w-full h-56 overflow-hidden bg-white">
+                            <div className={`w-full h-56 overflow-hidden bg-white ${card.title.includes('Podcast') ? 'p-6' : ''}`}>
                                 <img 
                                     src={card.image} 
                                     alt={card.title} 
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    className={`w-full h-full ${card.title.includes('Podcast') ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-500`}
                                 />
                             </div>
                             <div className="p-8">

@@ -12,8 +12,8 @@ const blocks = [
     },
     {
         icon: TrendingUp,
-        title: 'Venture Fund Access',
-        description: 'Dedicated venture capital resources to accelerate diagnostics and therapeutic breakthroughs.',
+        title: 'Seed Fund Access',
+        description: 'Dedicated seed capital to accelerate diagnostics and therapeutics breakthroughs',
         accent: '#4FC3F7',
     },
     {
@@ -46,10 +46,10 @@ export default function InnovationPage() {
                             Innovation & Venture
                         </span>
                         <h1 className="text-5xl md:text-6xl font-bold font-heading text-white mb-5 leading-tight">
-                            Bio-Product Development<br />&amp; Launch
+                            Venture Studio
                         </h1>
-                        <p className="text-white/70 text-xl max-w-2xl leading-relaxed">
-                            Accelerating breakthrough bio-technologies from concept through global market success.
+                        <p className="text-white/70 text-xl max-w-3xl leading-relaxed">
+                            NIAMBIO is evolving beyond traditional consulting by integrating a venture fund with its advisory services and The Precision Pulse podcast—creating a unique ecosystem that identifies, validates, and accelerates innovation in diagnostics, digital health, and precision medicine.
                         </p>
                     </motion.div>
                 </div>
@@ -74,7 +74,7 @@ export default function InnovationPage() {
                             </div>
                             <h2 className="text-4xl font-bold font-heading text-navy mb-4">COMING SOON</h2>
                             <p className="text-navy/60 text-lg leading-relaxed mb-8">
-                                Our Bio-Product Development &amp; Launch platform is under active development.
+                                Our Venture Studio platform is under active development.
                                 We're building something extraordinary to support innovators in bringing
                                 cutting-edge diagnostics and therapeutics to global markets.
                             </p>

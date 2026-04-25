@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Clock, MapPin, Send, Paperclip } from 'lucide-react'
+import { Mail, Clock, MapPin, Send, Paperclip, Calendar } from 'lucide-react'
 
 const contactInfo = [
     { icon: Mail, label: 'Email', value: 'info@niambio.com' },
@@ -123,6 +123,45 @@ export default function ContactPage() {
                                 </button>
                             </form>
                         )}
+                    </motion.div>
+                </div>
+            <section className="pb-32 px-6 bg-white overflow-hidden">
+                <div className="max-w-7xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="bg-grey rounded-[3rem] p-8 md:p-16 border border-navy/5 flex flex-col lg:flex-row items-center gap-12"
+                    >
+                        <div className="flex-1 text-center lg:text-left">
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-bold mb-6">
+                                <Calendar size={16} /> SCHEDULE A MEETING
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-bold font-heading text-navy mb-6">
+                                Let's Discuss Your <span className="gradient-text">Project</span>
+                            </h2>
+                            <p className="text-navy/60 text-lg mb-10 max-w-xl">
+                                Skip the form and book a direct consultation with our leadership team. 
+                                We're ready to explore how NIAMBIO can accelerate your bio-innovation journey.
+                            </p>
+                            <a href="#" className="btn-primary inline-flex items-center gap-2">
+                                Book a Meeting <Calendar size={18} />
+                            </a>
+                        </div>
+                        
+                        <div className="w-full lg:w-auto flex flex-col items-center gap-4 bg-white p-8 rounded-3xl shadow-xl border border-navy/5">
+                            <div className="w-48 h-48 rounded-2xl overflow-hidden bg-grey flex items-center justify-center p-2">
+                                <img 
+                                    src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://niambio.com/schedule" 
+                                    alt="Scan to schedule a meeting" 
+                                    className="w-full h-full object-contain"
+                                />
+                            </div>
+                            <div className="text-center">
+                                <div className="text-navy font-bold text-sm">Scan to Book</div>
+                                <div className="text-navy/40 text-xs mt-1 font-medium">Open with your camera app</div>
+                            </div>
+                        </div>
                     </motion.div>
                 </div>
             </section>

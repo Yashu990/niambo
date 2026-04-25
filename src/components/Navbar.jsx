@@ -8,8 +8,8 @@ const navigation = [
     {
         label: 'Ecosystem',
         children: [
-            { label: 'Consulting', path: '/consulting', desc: 'Strategic expert guidance', icon: Rocket },
-            { label: 'Innovation', path: '/innovation', desc: 'Accelerate bio-tech', icon: HeartPulse },
+            { label: 'Strategic Consulting', path: '/consulting', desc: 'Strategic expert guidance', icon: Rocket },
+            { label: 'Venture Studio', path: '/innovation', desc: 'Accelerate bio-tech', icon: HeartPulse },
             { label: 'Podcast', path: '/podcast', desc: 'Precision Pulse episodes', icon: Mic },
         ]
     },
@@ -56,7 +56,7 @@ export default function Navbar() {
                     <img
                         src="/niambio-logo.png"
                         alt="NIAMBIO Logo"
-                        className="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-all duration-300 drop-shadow-sm"
+                        className="h-12 md:h-14 w-auto object-contain group-hover:scale-105 transition-all duration-300 drop-shadow-sm"
                     />
                 </Link>
 

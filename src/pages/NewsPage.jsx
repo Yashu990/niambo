@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { TrendingUp, Globe, ArrowRight, Rss, Bell } from 'lucide-react'
+import { TrendingUp, Globe, ArrowRight, Rss, Bell, Clock } from 'lucide-react'
 
 const marketUpdates = [
     {
@@ -59,11 +59,14 @@ export default function NewsPage() {
                             <span className="flex h-2 w-2 rounded-full bg-teal animate-pulse" /> Live Market Feed
                         </span>
                         <h1 className="text-5xl md:text-7xl font-bold font-heading text-white mb-6 leading-tight">
-                            News & Market <span className="gradient-text">Updates</span>
+                            NEWS & MARKET <span className="gradient-text">UPDATES</span>
                         </h1>
-                        <p className="text-white/70 text-xl max-w-2xl leading-relaxed">
+                        <p className="text-white/70 text-xl max-w-2xl leading-relaxed mb-8">
                             Stay informed with the latest breakthroughs, regulatory shifts, and commercial trends across the global life sciences sector.
                         </p>
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal text-white text-sm font-bold animate-pulse">
+                            <Clock size={16} /> NEWS COMING SOON
+                        </div>
                     </motion.div>
                 </div>
             </section>

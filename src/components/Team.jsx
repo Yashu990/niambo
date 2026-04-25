@@ -49,7 +49,7 @@ export default function Team() {
                                 transition={{ duration: 3, repeat: Infinity }}
                                 className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-4 shadow-xl"
                             >
-                                <div className="text-navy font-bold text-lg font-heading">15+ yrs</div>
+                                <div className="text-navy font-bold text-lg font-heading">25+ yrs</div>
                                 <div className="text-navy/50 text-xs">Industry Experience</div>
                             </motion.div>
                         </div>
@@ -66,12 +66,11 @@ export default function Team() {
                             <Quote size={40} color="#00C2A8" className="shrink-0 rotate-180 opacity-60" />
                         </div>
                         <blockquote className="text-2xl font-semibold font-heading text-navy leading-relaxed mb-8">
-                            At NIAMBIO, our vision is to empower life sciences innovation through precision and
-                            collaboration.
+                            At NIAMBIO, our vision is to Empowering life sciences innovation through data-driven diagnostics development, commercialization, and patient access.
                         </blockquote>
 
                         <p className="text-navy/60 leading-relaxed mb-8 text-base">
-                            Amit K. Jain brings over 15 years of expertise in life sciences, diagnostics, and
+                            Amit K. Jain brings over 25 years of expertise in life sciences, diagnostics, and
                             biotech consulting. As the founder and CEO of NIAMBIO, he is dedicated to bridging the
                             gap between cutting-edge research and global market success.
                         </p>

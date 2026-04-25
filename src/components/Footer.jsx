@@ -10,7 +10,7 @@ const footerLinks = {
     Services: [
         { label: 'Strategic Consulting', path: '/consulting' },
         { label: 'Podcast', path: '/podcast' },
-        { label: 'Innovation', path: '/innovation' },
+        { label: 'Venture Studio', path: '/innovation' },
     ],
     Media: [
         { label: 'Blog', path: '/blog' },
@@ -32,12 +32,11 @@ export default function Footer() {
                             <img
                                 src="/niambio-logo.png"
                                 alt="NIAMBIO Logo"
-                                className="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-all duration-300 drop-shadow-sm brightness-110"
+                                className="h-12 md:h-14 w-auto object-contain group-hover:scale-105 transition-all duration-300 drop-shadow-sm brightness-110"
                             />
                         </Link>
                         <p className="text-white/50 text-sm leading-relaxed max-w-xs mb-5">
-                            Life Sciences Innovation Platform connecting experts, innovation, and venture capital
-                            to accelerate breakthrough diagnostics and therapeutics.
+                            Empowering life sciences innovation through data-driven diagnostics development, commercialization, and patient access.
                         </p>
                         <div className="flex gap-3">
                             {[

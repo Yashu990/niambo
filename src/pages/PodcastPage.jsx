@@ -51,8 +51,16 @@ const episodes = [
 
 const platformLinks = [
     { name: 'Spotify', href: '#', color: '#1DB954' },
+    { name: 'Amazon Music', href: '#', color: '#FF9900' },
     { name: 'Apple Podcasts', href: '#', color: '#B150E2' },
-    { name: 'YouTube', href: 'https://www.youtube.com', color: '#FF0000' },
+    { name: 'YouTube', href: 'https://www.youtube.com/@Precision_Pulse_with_Amit', color: '#FF0000' },
+]
+
+const shorts = [
+    { id: 'rlg2I6eO0vo', title: 'Precision Health Insights', num: 'S1' },
+    { id: '5le3ubNNd4M', title: 'Energy & Meditation', num: 'S2' },
+    { id: 'kTjYfR2PoU8', title: 'Diagnostics Future', num: 'S3' },
+    { id: '74f6Xnx36ts', title: 'Lab Innovation', num: 'S4' },
 ]
 
 const fadeUp = {
@@ -156,26 +164,50 @@ export default function PodcastPage() {
 
             {/* ── About the Podcast ── */}
             <section className="section-padding bg-grey">
-                <div className="max-w-4xl mx-auto text-center">
+                <div className="max-w-5xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
+                        className="bg-white rounded-3xl p-10 md:p-16 shadow-sm border border-navy/5"
                     >
-                        <h2 className="text-3xl font-bold font-heading text-navy mb-6">About the Show</h2>
-                        <p className="text-navy/65 text-lg leading-relaxed">
-                            <strong className="text-navy">Precision Pulse</strong> is a podcast that delves into the profound impact of
-                            precision in shaping everyday experiences. By exploring topics such as precision health,
-                            the intricate connection between meditation and energy flow, effective personal hygiene
-                            practices, and actionable strategies for maintaining a balanced lifestyle, the podcast
-                            provides a comprehensive guide to living with intention and clarity.
-                        </p>
-                        <p className="text-navy/65 text-lg leading-relaxed mt-4">
-                            Each episode is designed to empower listeners with cutting-edge insights, fostering a
-                            deeper understanding of how precision can transform personal well-being and elevate the
-                            quality of life.
-                        </p>
+                        <h2 className="text-3xl font-bold font-heading text-navy mb-8 text-center">About the Show</h2>
+                        <div className="space-y-6 text-navy/70 text-lg leading-relaxed">
+                            <p className="text-xl font-medium text-navy">
+                                The Precision Pulse Podcast: Where science, technology, and everyday living converge through the lens of precision.
+                            </p>
+                            
+                            <p>
+                                Hosted by <strong className="text-navy">Amit K. Jain (AJ)</strong>, The Precision Pulse explores how precision-driven thinking is reshaping healthcare, human performance, and the way we live. Each episode bridges cutting edge innovation with practical, real world impact—making complex ideas accessible, relevant, and actionable.
+                            </p>
+
+                            <p>
+                                Through conversations with global experts, innovators, clinicians, and thought leaders, the podcast dives into:
+                            </p>
+                            
+                            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {[
+                                    'Breakthroughs in precision medicine, diagnostics, and AI enabled healthcare',
+                                    'Emerging technologies transforming disease detection, treatment, and prevention',
+                                    'The expanding role of data, real world evidence, and personalized care',
+                                    'Practical strategies for mindset, physical health, and intentional living'
+                                ].map((item, idx) => (
+                                    <li key={idx} className="flex items-start gap-3 bg-grey/50 p-4 rounded-xl border border-navy/5">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-teal mt-2.5 shrink-0" />
+                                        <span className="text-base font-medium leading-snug">{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <p>
+                                What sets The Precision Pulse apart is its holistic perspective. It doesn’t just decode scientific advances—it connects them to the small, precise habits that shape long term well being. Whether unpacking the future of diagnostics or exploring how micro behaviors influence performance, the podcast brings clarity to what truly matters.
+                            </p>
+                            
+                            <p>
+                                At its core, The Precision Pulse is about empowerment through precision—helping listeners make smarter decisions, adopt meaningful practices, and stay ahead in a rapidly evolving health and technology landscape.
+                            </p>
+                        </div>
                     </motion.div>
                 </div>
             </section>
@@ -189,13 +221,49 @@ export default function PodcastPage() {
                         viewport={{ once: true }}
                         className="text-center mb-14"
                     >
-                        <h2 className="text-3xl font-bold font-heading text-navy mb-3">All Episodes</h2>
-                        <p className="text-navy/55">Watch our latest episodes on YouTube</p>
+                        <h2 className="text-3xl font-bold font-heading text-navy mb-3">Full Episodes</h2>
+                        <p className="text-navy/55">In-depth conversations with industry leaders</p>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
                         {episodes.map((ep, i) => (
                             <EpisodeCard key={ep.id} ep={ep} index={i} />
+                        ))}
+                    </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-14"
+                    >
+                        <h2 className="text-3xl font-bold font-heading text-navy mb-3">Marketing Shorts</h2>
+                        <p className="text-navy/55">Quick insights and highlights from the show</p>
+                    </motion.div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {shorts.map((short, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="bg-navy rounded-2xl overflow-hidden aspect-[9/16] relative group"
+                            >
+                                <iframe
+                                    className="absolute inset-0 w-full h-full"
+                                    src={`https://www.youtube.com/embed/${short.id}?modestbranding=1&rel=0`}
+                                    title={short.title}
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+                                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-navy to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <div className="text-white text-xs font-bold">{short.num}</div>
+                                    <div className="text-white text-sm font-medium truncate">{short.title}</div>
+                                </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>

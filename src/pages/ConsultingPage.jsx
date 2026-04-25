@@ -3,13 +3,22 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { CheckCircle2, ArrowRight, FlaskConical, Mail } from 'lucide-react'
 
-const bullets = [
-    'Global market strategy',
-    'Diagnostic product launch',
-    'Regulatory guidance',
-    'Fractional leadership support',
-    'Commercial strategy',
+const slide1 = [
     'R&D strategy & execution',
+    'Global market strategy',
+    'Regulatory guidance',
+    'Commercial strategy',
+    'Clinical trial support',
+    'Supply chain optimization',
+]
+
+const slide2 = [
+    'Diagnostic product launch',
+    'IVD regulatory navigation',
+    'Fractional leadership support',
+    'Laboratory operations strategy',
+    'Digital health integration',
+    'CLIA laboratory certification support',
 ]
 
 const fadeUp = {
@@ -18,6 +27,7 @@ const fadeUp = {
 }
 
 export default function ConsultingPage() {
+    const [activeOption, setActiveOption] = useState('a')
     return (
         <>
             {/* ── Page Hero ── */}
@@ -32,8 +42,7 @@ export default function ConsultingPage() {
                             Strategic Consulting
                         </h1>
                         <p className="text-white/70 text-xl max-w-2xl leading-relaxed">
-                            Empowering life sciences innovators with expert guidance across every stage — from
-                            R&amp;D through global commercial launch.
+                            Empowering life sciences innovation through data-driven diagnostics development, commercialization, and patient access.
                         </p>
                     </motion.div>
                 </div>
@@ -87,14 +96,10 @@ export default function ConsultingPage() {
                         <h2 className="text-3xl font-bold font-heading text-navy mb-6">What We Do</h2>
                         <div className="text-navy/70 leading-relaxed space-y-5 mb-10 text-base">
                             <p>
-                                Our team comprises <strong className="text-navy">Subject Matter Experts in R&amp;D, market access,
-                                    and commercial launch strategies</strong> in global markets. Our team supports Dx innovators
-                                and manufacturers as full-time or fractional senior executives and advisors.
+                                We work with our clients on defined scope of work to support their product development and commercial launch efforts — from early-stage regulatory navigation through to full market entry and beyond.
                             </p>
                             <p>
-                                We also work with our clients on defined scope of work to support their product
-                                development and commercial launch efforts — from early-stage regulatory navigation
-                                through to full market entry and beyond.
+                                Our team also supports IVD innovators and manufacturers as full time or fractional senior executives and advisors.
                             </p>
                             <p>
                                 Schedule your consultation with our team of subject matter experts today to explore
@@ -104,9 +109,46 @@ export default function ConsultingPage() {
                             </p>
                         </div>
 
-                        <h3 className="text-xl font-bold font-heading text-navy mb-5">Our Capabilities</h3>
-                        <ul className="space-y-4 mb-10">
-                            {bullets.map((b, i) => (
+                        <h3 className="text-xl font-bold font-heading text-navy mb-6">Our Capabilities</h3>
+                        
+                        {/* Capability Options */}
+                        <div className="flex flex-col gap-3 mb-10">
+                            <button 
+                                onClick={() => setActiveOption('a')}
+                                className={`text-left p-4 rounded-xl border transition-all duration-300 ${activeOption === 'a' ? 'bg-teal/5 border-teal border-2' : 'bg-grey border-navy/5 hover:border-teal/30'}`}
+                            >
+                                <div className="flex items-center gap-3">
+                                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${activeOption === 'a' ? 'border-teal' : 'border-navy/20'}`}>
+                                        {activeOption === 'a' && <div className="w-2.5 h-2.5 bg-teal rounded-full" />}
+                                    </div>
+                                    <span className={`font-bold text-sm ${activeOption === 'a' ? 'text-navy' : 'text-navy/60'}`}>
+                                        Companies Developing and Launching Life Savings Therapeutics (Pharmaceuticals/Biotech)
+                                    </span>
+                                </div>
+                            </button>
+
+                            <button 
+                                onClick={() => setActiveOption('b')}
+                                className={`text-left p-4 rounded-xl border transition-all duration-300 ${activeOption === 'b' ? 'bg-teal/5 border-teal border-2' : 'bg-grey border-navy/5 hover:border-teal/30'}`}
+                            >
+                                <div className="flex items-center gap-3">
+                                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${activeOption === 'b' ? 'border-teal' : 'border-navy/20'}`}>
+                                        {activeOption === 'b' && <div className="w-2.5 h-2.5 bg-teal rounded-full" />}
+                                    </div>
+                                    <span className={`font-bold text-sm ${activeOption === 'b' ? 'text-navy' : 'text-navy/60'}`}>
+                                        In Vitro Diagnostics Innovators / Digital Health Companies / CLIA laboratories
+                                    </span>
+                                </div>
+                            </button>
+                        </div>
+
+                        <motion.ul 
+                            key={activeOption}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            className="space-y-4 mb-10"
+                        >
+                            {(activeOption === 'a' ? slide1 : slide2).map((b, i) => (
                                 <motion.li
                                     key={b}
                                     custom={i}
@@ -120,7 +162,7 @@ export default function ConsultingPage() {
                                     {b}
                                 </motion.li>
                             ))}
-                        </ul>
+                        </motion.ul>
 
                         <Link to="/contact" id="consulting-cta" className="btn-primary inline-flex items-center gap-2">
                             Book Consultation <ArrowRight size={18} />

@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { FileText, Download, Play, BookOpen, Coffee, HelpCircle, Lock } from 'lucide-react'
+import { FileText, Download, Play, BookOpen, Coffee, HelpCircle, Lock, Clock } from 'lucide-react'
 
 const resources = [
     {
@@ -59,11 +59,14 @@ export default function ResourcesPage() {
                             Expert Knowledge
                         </span>
                         <h1 className="text-5xl md:text-7xl font-bold font-heading text-white mb-6 leading-tight max-w-4xl mx-auto">
-                            Knowledge <span className="gradient-text">Resources</span> & Toolkits
+                            KNOWLEDGE <span className="gradient-text">RESOURCES</span> & TOOLKITS
                         </h1>
-                        <p className="text-white/70 text-xl max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-white/70 text-xl max-w-2xl mx-auto leading-relaxed mb-8">
                             Access our curated collection of whitepapers, tactical guides, and regulatory toolkits designed for life sciences leaders.
                         </p>
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal text-white text-sm font-bold animate-pulse">
+                            <Clock size={16} /> RESOURCES COMING SOON
+                        </div>
                     </motion.div>
                 </div>
             </section>

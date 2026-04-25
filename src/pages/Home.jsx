@@ -17,16 +17,16 @@ const fadeUp = {
 const ecosystemCards = [
     {
         image: '/ecosystem-expert.png',
-        title: 'Expert Marketplace',
+        title: 'Strategic Consulting',
         description:
-            'A dynamic platform connecting life science experts with innovators and manufacturers to accelerate product development and commercialization.',
+            'Empowering life sciences innovators with expert guidance across every stage — from R&D through global commercial launch.',
         color: '#00C2A8',
         glow: 'rgba(0,194,168,0.18)',
         link: '/consulting',
     },
     {
         image: '/ecosystem-podcast.png',
-        title: 'Precision Pulse Podcast',
+        title: 'The Precision Pulse Podcast',
         description:
             'Exploring precision health, meditation science, diagnostics innovation and lifestyle transformation.',
         color: '#4FC3F7',
@@ -35,9 +35,9 @@ const ecosystemCards = [
     },
     {
         image: '/ecosystem-bio.png',
-        title: 'Bio-Product Development',
+        title: 'Venture Studio',
         description:
-            'Supporting development and global commercial launch of cutting-edge diagnostic and therapeutic innovations.',
+            'NIAMBIO is evolving beyond traditional consulting by integrating a venture fund with its advisory services and The Precision Pulse podcast—creating a unique ecosystem that identifies, validates, and accelerates innovation in diagnostics, digital health, and precision medicine.',
         color: '#6C63FF',
         glow: 'rgba(108,99,255,0.18)',
         link: '/innovation',
@@ -54,8 +54,8 @@ const innovationBlocks = [
     },
     {
         icon: TrendingUp,
-        title: 'Venture Fund Access',
-        description: 'Dedicated venture capital resources to accelerate diagnostics and therapeutic breakthroughs.',
+        title: 'Seed Fund Access',
+        description: 'Dedicated seed capital to accelerate diagnostics and therapeutics breakthroughs',
         accent: '#4FC3F7',
     },
     {
@@ -128,8 +128,7 @@ export default function Home() {
                             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
                             className="text-white/70 text-lg leading-relaxed mb-10 max-w-lg"
                         >
-                            Connecting experts, innovation, and venture capital to accelerate
-                            breakthrough diagnostics and therapeutics.
+                            Empowering life sciences innovation through data-driven diagnostics development, commercialization, and patient access.
                         </motion.p>
 
                         <motion.div
@@ -150,8 +149,8 @@ export default function Home() {
                             className="flex flex-wrap gap-8 mt-14"
                         >
                             {[
-                                { num: '200+', label: 'Experts Connected' },
-                                { num: '50+', label: 'Projects Launched' },
+                                { num: '100+', label: 'Experts Connected' },
+                                { num: '20+', label: 'Projects Launched' },
                                 { num: '30+', label: 'Global Markets' },
                             ].map((s) => (
                                 <div key={s.label}>
@@ -167,34 +166,34 @@ export default function Home() {
                         initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.4 }}
                         className="hidden lg:flex justify-center items-center"
                     >
-                        <div className="relative w-[420px] h-[420px]">
+                        <div className="relative w-[500px] h-[500px]">
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <motion.div
                                     animate={{ rotate: 360 }}
                                     transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-                                    className="w-72 h-72 rounded-full border border-teal/30"
+                                    className="w-[432px] h-[432px] rounded-full border border-teal/30"
                                 />
                             </div>
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <motion.div
                                     animate={{ rotate: -360 }}
                                     transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                                    className="w-52 h-52 rounded-full border border-lightblue/40 border-dashed"
+                                    className="w-[312px] h-[312px] rounded-full border border-lightblue/40 border-dashed"
                                 />
                             </div>
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-32 h-32 rounded-full shadow-2xl flex items-center justify-center bg-white overflow-hidden border border-teal/20">
-                                    <img src="/ecosystem-podcast.png" alt="Precision Pulse Logo" className="w-full h-full object-cover" />
+                                <div className="w-48 h-48 rounded-full shadow-2xl flex items-center justify-center bg-white overflow-hidden border-2 border-teal/20 p-6">
+                                    <img src="/niambio-logo.png" alt="NIAMBIO Logo" className="w-full h-full object-contain" />
                                 </div>
                             </div>
                             {[0, 60, 120, 180, 240, 300].map((deg, i) => (
                                 <motion.div
                                     key={i}
-                                    className="absolute w-3 h-3 rounded-full"
+                                    className="absolute w-3.5 h-3.5 rounded-full"
                                     style={{
                                         background: i % 2 === 0 ? '#00C2A8' : '#4FC3F7',
-                                        top: `${50 - 44 * Math.cos((deg * Math.PI) / 180)}%`,
-                                        left: `${50 + 44 * Math.sin((deg * Math.PI) / 180)}%`,
+                                        top: `${50 - 45 * Math.cos((deg * Math.PI) / 180)}%`,
+                                        left: `${50 + 45 * Math.sin((deg * Math.PI) / 180)}%`,
                                         transform: 'translate(-50%,-50%)',
                                     }}
                                     animate={{ scale: [1, 1.5, 1], opacity: [0.7, 1, 0.7] }}
@@ -246,11 +245,11 @@ export default function Home() {
                                 className="bg-white rounded-2xl overflow-hidden border border-navy/5 cursor-default group shadow-lg"
                                 style={{ boxShadow: `0 10px 40px ${card.glow}` }}
                             >
-                                <div className="w-full h-56 overflow-hidden bg-white">
+                                <div className={`w-full h-56 overflow-hidden bg-white ${card.title.includes('Podcast') ? 'p-6' : ''}`}>
                                     <img 
                                         src={card.image} 
                                         alt={card.title} 
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        className={`w-full h-full ${card.title.includes('Podcast') ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-500`}
                                     />
                                 </div>
                                 <div className="p-8">
@@ -318,7 +317,7 @@ export default function Home() {
                         className="text-center mt-12"
                     >
                         <Link to="/innovation" className="btn-primary inline-flex items-center gap-2">
-                            Explore Innovation <ArrowRight size={18} />
+                            Explore Venture Studio <ArrowRight size={18} />
                         </Link>
                     </motion.div>
                 </div>

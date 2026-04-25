@@ -88,8 +88,7 @@ export default function Hero() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-white/70 text-lg leading-relaxed mb-10 max-w-lg"
                     >
-                        Connecting experts, innovation, and venture capital to accelerate
-                        breakthrough diagnostics and therapeutics.
+                        Empowering life sciences innovation through data-driven diagnostics development, commercialization, and patient access.
                     </motion.p>
 
                     <motion.div
@@ -122,8 +121,8 @@ export default function Hero() {
                         className="flex flex-wrap gap-8 mt-14"
                     >
                         {[
-                            { num: '200+', label: 'Experts Connected' },
-                            { num: '50+', label: 'Projects Launched' },
+                            { num: '100+', label: 'Experts Connected' },
+                            { num: '20+', label: 'Projects Launched' },
                             { num: '30+', label: 'Global Markets' },
                         ].map((s) => (
                             <div key={s.label}>
@@ -141,38 +140,37 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className="hidden lg:flex justify-center items-center"
                 >
-                    <div className="relative w-[420px] h-[420px]">
+                    <div className="relative w-[500px] h-[500px]">
                         {/* Central circle */}
                         <div className="absolute inset-0 flex items-center justify-center">
                             <motion.div
                                 animate={{ rotate: 360 }}
                                 transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-                                className="w-72 h-72 rounded-full border border-teal/30"
+                                className="w-[432px] h-[432px] rounded-full border border-teal/30"
                             />
                         </div>
                         <div className="absolute inset-0 flex items-center justify-center">
                             <motion.div
                                 animate={{ rotate: -360 }}
                                 transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                                className="w-52 h-52 rounded-full border border-lightblue/40 border-dashed"
+                                className="w-[312px] h-[312px] rounded-full border border-lightblue/40 border-dashed"
                             />
                         </div>
                         {/* Core */}
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-32 h-32 rounded-full glassmorphism flex flex-col items-center justify-center shadow-2xl">
-                                <span className="text-2xl font-bold font-heading gradient-text">N</span>
-                                <span className="text-white/60 text-xs mt-1">NIAMBIO</span>
+                            <div className="w-48 h-48 rounded-full shadow-2xl flex items-center justify-center bg-white overflow-hidden border-2 border-teal/20 p-6">
+                                <img src="/niambio-logo.png" alt="NIAMBIO Logo" className="w-full h-full object-contain" />
                             </div>
                         </div>
                         {/* Orbiting dots */}
                         {[0, 60, 120, 180, 240, 300].map((deg, i) => (
                             <motion.div
                                 key={i}
-                                className="absolute w-3 h-3 rounded-full"
+                                className="absolute w-3.5 h-3.5 rounded-full"
                                 style={{
                                     background: i % 2 === 0 ? '#00C2A8' : '#4FC3F7',
-                                    top: `${50 - 44 * Math.cos((deg * Math.PI) / 180)}%`,
-                                    left: `${50 + 44 * Math.sin((deg * Math.PI) / 180)}%`,
+                                    top: `${50 - 45 * Math.cos((deg * Math.PI) / 180)}%`,
+                                    left: `${50 + 45 * Math.sin((deg * Math.PI) / 180)}%`,
                                     transform: 'translate(-50%,-50%)',
                                 }}
                                 animate={{ scale: [1, 1.5, 1], opacity: [0.7, 1, 0.7] }}

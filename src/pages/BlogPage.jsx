@@ -62,11 +62,14 @@ export default function BlogPage() {
                             Insights & Thinking
                         </span>
                         <h1 className="text-5xl md:text-7xl font-bold font-heading text-white mb-6 leading-tight">
-                            Niambio <span className="gradient-text">Blog</span>
+                            NIAMBIO <span className="gradient-text">BLOG</span>
                         </h1>
-                        <p className="text-white/70 text-xl max-w-2xl leading-relaxed">
+                        <p className="text-white/70 text-xl max-w-2xl leading-relaxed mb-8">
                             Deep dives into the latest trends, breakthroughs, and strategies in the global life sciences industry.
                         </p>
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal text-white text-sm font-bold animate-pulse">
+                            <Clock size={16} /> BLOG COMING SOON
+                        </div>
                     </motion.div>
                 </div>
             </section>
