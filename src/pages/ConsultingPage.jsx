@@ -147,7 +147,6 @@ export default function ConsultingPage() {
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold font-heading text-navy mb-4">Our Capabilities</h2>
-                        <p className="text-navy/50 max-w-2xl mx-auto">Select your sector to explore our specialized end-to-end strategic support.</p>
                     </div>
 
                     <div className="flex flex-col lg:flex-row gap-4 justify-center mb-16">
@@ -160,7 +159,7 @@ export default function ConsultingPage() {
                             </div>
                             <div>
                                 <h3 className={`font-bold text-lg mb-1 ${activeOption === 'a' ? 'text-navy' : 'text-navy/60'}`}>Pharmaceuticals & Biotech</h3>
-                                <p className="text-navy/40 text-xs">Companies Developing and Launching Life Savings Therapeutics</p>
+                                <p className="text-navy/40 text-xs">Companies Developing and Launching Life Savings Therapeutics (Pharmaceuticals/Biotech)</p>
                             </div>
                         </button>
 
@@ -173,7 +172,7 @@ export default function ConsultingPage() {
                             </div>
                             <div>
                                 <h3 className={`font-bold text-lg mb-1 ${activeOption === 'b' ? 'text-navy' : 'text-navy/60'}`}>IVD & Digital Health</h3>
-                                <p className="text-navy/40 text-xs">Innovators, CLIA Laboratories and Digital Health Companies</p>
+                                <p className="text-navy/40 text-xs">In Vitro Diagnostics Innovators / Digital Health Companies / CLIA laboratories</p>
                             </div>
                         </button>
                     </div>
@@ -210,20 +209,26 @@ export default function ConsultingPage() {
                 </div>
             </section>
 
-            {/* ── Additional Support ── */}
+            {/* ── What We Do ── */}
             <section className="section-padding bg-white">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="bg-navy rounded-[3rem] p-8 md:p-16 flex flex-col lg:flex-row gap-16 items-center">
                         <div className="flex-1">
                             <h2 className="text-3xl md:text-5xl font-bold font-heading text-white mb-8">
-                                Fractional Leadership <span className="gradient-text">& Advisory</span>
+                                What We Do
                             </h2>
                             <div className="space-y-6 text-white/60 text-lg">
                                 <p>
-                                    Our team supports IVD innovators and manufacturers as full-time or fractional senior executives and advisors.
+                                    Our team comprises Subject Matter Experts in R&D, market access, and commercial launch strategies in global markets.
                                 </p>
                                 <p>
                                     We work with our clients on defined scope of work to support their product development and commercial launch efforts — from early-stage regulatory navigation through to full market entry and beyond.
+                                </p>
+                                <p>
+                                    Our team also supports IVD innovators and manufacturers as full time or fractional senior executives and advisors.
+                                </p>
+                                <p className="text-white/40 text-base">
+                                    Schedule your consultation with our team of subject matter experts today to explore pioneering solutions tailored to your needs. Our commitment to innovation ensures you receive the highest level of care and insight throughout every phase of your bio-product development and launch journey.
                                 </p>
                             </div>
                             <Link to="/contact" className="mt-10 btn-primary inline-flex items-center gap-2">

@@ -112,28 +112,28 @@ export default function Home() {
                             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glassmorphism mb-6"
                         >
                             <span className="w-2 h-2 bg-teal rounded-full animate-pulse" />
-                            <span className="text-teal text-sm font-medium">Life Sciences Innovation</span>
+                            <span className="text-teal text-sm font-medium">Expert Guidance</span>
                         </motion.div>
 
                         <motion.h1
                             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-5xl md:text-6xl font-bold font-heading text-white leading-tight mb-6"
+                            className="text-5xl md:text-7xl font-bold font-heading text-white leading-tight mb-6"
                         >
-                            Empowering{' '}
-                            <span className="gradient-text">Life Sciences</span>{' '}
-                            Innovation Through Precision
+                            Strategic Consulting
                         </motion.h1>
 
                         <motion.p
                             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-white/70 text-lg leading-relaxed mb-10 max-w-lg"
+                            className="text-white/70 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl"
                         >
-                            Empowering life sciences innovation through data-driven diagnostics development, commercialization, and patient access.
+                            Empowering life sciences innovators with expert guidance across every stage — from R&D through global commercial launch
                         </motion.p>
 
+
+
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-                            className="flex flex-wrap gap-4"
+                            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
+                            className="flex flex-wrap gap-4 mt-4"
                         >
                             <Link to="/consulting" id="hero-consulting" className="btn-primary flex items-center gap-2">
                                 Get Consulting <ArrowRight size={18} />
@@ -182,7 +182,7 @@ export default function Home() {
                                 />
                             </div>
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-48 h-48 rounded-full shadow-2xl flex items-center justify-center bg-white overflow-hidden border-2 border-teal/20 p-6">
+                                <div className="w-64 h-64 rounded-full shadow-2xl flex items-center justify-center bg-white overflow-hidden border-2 border-teal/20 p-8">
                                     <img src="/niambio-logo.png" alt="NIAMBIO Logo" className="w-full h-full object-contain" />
                                 </div>
                             </div>

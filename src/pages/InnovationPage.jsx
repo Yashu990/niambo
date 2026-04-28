@@ -43,7 +43,7 @@ export default function InnovationPage() {
                 <div className="max-w-7xl mx-auto relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
                         <span className="inline-block px-4 py-1.5 rounded-full glassmorphism text-teal text-sm font-semibold mb-5">
-                            Innovation & Venture
+                            Venture Studio
                         </span>
                         <h1 className="text-5xl md:text-6xl font-bold font-heading text-white mb-5 leading-tight">
                             Venture Studio
@@ -74,9 +74,7 @@ export default function InnovationPage() {
                             </div>
                             <h2 className="text-4xl font-bold font-heading text-navy mb-4">COMING SOON</h2>
                             <p className="text-navy/60 text-lg leading-relaxed mb-8">
-                                Our Venture Studio platform is under active development.
-                                We're building something extraordinary to support innovators in bringing
-                                cutting-edge diagnostics and therapeutics to global markets.
+                                Venture Studio platform is under active development. We're building something extraordinary to support innovators in bringing cutting-edge diagnostics and therapeutics to global markets.
                             </p>
                             <div className="flex flex-wrap justify-center gap-4">
                                 <Link to="/contact" className="btn-primary inline-flex items-center gap-2">

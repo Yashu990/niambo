@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Mail, ExternalLink } from 'lucide-react'
+import appleLogo from '../apple-logo.png'
+import amazonLogo from '../social.png'
 
 /* ── 6 real YouTube video IDs ── */
 const episodes = [
@@ -117,26 +119,52 @@ function EpisodeCard({ ep, index }) {
     )
 }
 
+const PlatformIcon = ({ name, color }) => {
+    switch (name) {
+        case 'Spotify':
+            return (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ color }}>
+                    <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm5.508 17.304c-.216.355-.678.468-1.034.252-2.868-1.752-6.478-2.148-10.73-1.173-.404.091-.81-.158-.901-.562-.091-.403.158-.809.562-.901 4.655-1.066 8.647-.613 11.85 1.341.356.216.469.678.253 1.043zm1.468-3.264c-.273.444-.852.585-1.296.312-3.28-2.016-8.277-2.604-12.153-1.428-.5.151-1.026-.134-1.178-.634-.151-.5.134-1.026.634-1.178 4.426-1.343 9.932-.676 13.681 1.632.444.273.585.852.312 1.296zm.126-3.384C15.016 8.244 8.28 8.016 4.392 9.192c-.612.186-1.258-.168-1.444-.78-.186-.612.168-1.258.78-1.444 4.476-1.356 11.916-1.092 16.632 1.704.552.324.732 1.032.408 1.584-.324.552-1.032.732-1.584.408z"/>
+                </svg>
+            )
+        case 'YouTube':
+            return (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ color }}>
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+            )
+        case 'Apple Podcasts':
+            return (
+                <img src={appleLogo} alt="Apple Podcasts" className="w-4 h-4 object-contain brightness-0 invert" />
+            )
+        case 'Amazon Music':
+            return (
+                <img src={amazonLogo} alt="Amazon Music" className="w-5 h-5 object-contain" />
+            )
+        default:
+            return <ExternalLink size={14} color={color} />
+    }
+}
+
 export default function PodcastPage() {
     return (
-        <>
+        <div className="bg-white">
             {/* ── Page Hero ── */}
-            <section className="pt-44 pb-24 px-6 md:px-12 lg:px-20 gradient-bg relative overflow-hidden min-h-[55vh] flex flex-col justify-center">
-                {/* Concentric ring decoration */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-[0.06] pointer-events-none">
-                    {[...Array(6)].map((_, i) => (
-                        <div key={i} className="absolute rounded-full border border-white"
-                            style={{ width: 200 + i * 100, height: 200 + i * 100 }} />
-                    ))}
-                </div>
-
-                <div className="max-w-7xl mx-auto relative z-10 text-center">
+            <section className="pt-44 pb-24 px-6 md:px-12 lg:px-20 gradient-bg relative overflow-hidden min-h-[60vh] flex flex-col justify-center">
+                <div className="absolute inset-0 opacity-[0.05]"
+                    style={{
+                        backgroundImage: 'linear-gradient(#ffffff 1px,transparent 1px),linear-gradient(90deg,#ffffff 1px,transparent 1px)',
+                        backgroundSize: '40px 40px',
+                    }}
+                />
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl pointer-events-none" />
+                <div className="max-w-7xl mx-auto relative z-10 w-full text-center">
                     <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
                         <span className="inline-block px-4 py-1.5 rounded-full glassmorphism text-teal text-sm font-semibold mb-5">
-                            Listen & Learn
+                            Podcast
                         </span>
-                        <h1 className="text-5xl md:text-6xl font-bold font-heading text-white mb-5 leading-tight">
-                            Precision Pulse Podcast
+                        <h1 className="text-5xl md:text-8xl font-bold font-heading text-white mb-6 leading-tight">
+                            The Precision <span className="gradient-text">Pulse</span>
                         </h1>
                         <p className="text-white/70 text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
                             Redefining Precision for a Healthier Life
@@ -149,12 +177,12 @@ export default function PodcastPage() {
                                     key={p.name}
                                     href={p.href}
                                     id={`podcast-platform-${p.name.toLowerCase().replace(' ', '-')}`}
-                                    className="flex items-center gap-2 px-5 py-2.5 rounded-full glassmorphism text-white text-sm font-medium hover:scale-105 transition-transform"
+                                    className="flex items-center gap-2 px-5 py-2.5 rounded-full glassmorphism text-white text-sm font-medium hover:scale-105 transition-transform group"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <ExternalLink size={14} color={p.color} />
-                                    {p.name}
+                                    <PlatformIcon name={p.name} color={p.color} />
+                                    <span className="group-hover:text-white transition-colors">{p.name}</span>
                                 </a>
                             ))}
                         </div>
@@ -237,7 +265,7 @@ export default function PodcastPage() {
                         viewport={{ once: true }}
                         className="text-center mb-14"
                     >
-                        <h2 className="text-3xl font-bold font-heading text-navy mb-3">Marketing Shorts</h2>
+                        <h2 className="text-3xl font-bold font-heading text-navy mb-3">Precision Pulse Shorts</h2>
                         <p className="text-navy/55">Quick insights and highlights from the show</p>
                     </motion.div>
 
@@ -293,6 +321,6 @@ export default function PodcastPage() {
                     </Link>
                 </motion.div>
             </section>
-        </>
+        </div>
     )
 }

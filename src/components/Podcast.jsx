@@ -70,7 +70,7 @@ export default function Podcast() {
                         Listen & Learn
                     </span>
                     <h2 className="text-4xl font-bold font-heading text-white mb-4">
-                        Precision Pulse Podcast
+                        The Precision Pulse Podcast
                     </h2>
                     <p className="text-white/70 text-lg max-w-xl mx-auto">
                         Redefining precision for a healthier life.
@@ -78,7 +78,12 @@ export default function Podcast() {
 
                     {/* Platform links */}
                     <div className="flex justify-center flex-wrap gap-4 mt-8">
-                        {platformLinks.map((p) => (
+                        {[
+                            { name: 'Spotify', href: '#', color: '#1DB954' },
+                            { name: 'Amazon Music', href: '#', color: '#FF9900' },
+                            { name: 'Apple Podcasts', href: '#', color: '#B150E2' },
+                            { name: 'YouTube', href: 'https://www.youtube.com/@Precision_Pulse_with_Amit', color: '#FF0000' },
+                        ].map((p) => (
                             <a
                                 key={p.name}
                                 href={p.href}

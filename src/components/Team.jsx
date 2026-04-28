@@ -66,11 +66,11 @@ export default function Team() {
                             <Quote size={40} color="#00C2A8" className="shrink-0 rotate-180 opacity-60" />
                         </div>
                         <blockquote className="text-2xl font-semibold font-heading text-navy leading-relaxed mb-8">
-                            At NIAMBIO, our vision is to Empowering life sciences innovation through data-driven diagnostics development, commercialization, and patient access.
+                            At NIAMBIO, our mission is “Empowering life sciences innovation through data-driven diagnostics development, commercialization, and patient access”
                         </blockquote>
 
                         <p className="text-navy/60 leading-relaxed mb-8 text-base">
-                            Amit K. Jain brings over 25 years of expertise in life sciences, diagnostics, and
+                            Amit K. Jain brings over 25+ years of expertise in life sciences, diagnostics, and
                             biotech consulting. As the founder and CEO of NIAMBIO, he is dedicated to bridging the
                             gap between cutting-edge research and global market success.
                         </p>

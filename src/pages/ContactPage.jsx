@@ -161,7 +161,6 @@ export default function ContactPage() {
                             </div>
                             <div className="text-center">
                                 <div className="text-navy font-bold text-sm">Scan to Book</div>
-                                <a href="https://cal.com/akjain" target="_blank" rel="noopener noreferrer" className="text-teal text-xs mt-1 font-bold block hover:underline">cal.com/akjain</a>
                                 <div className="text-navy/40 text-xs mt-1 font-medium">Open with your camera app</div>
                             </div>
                         </div>

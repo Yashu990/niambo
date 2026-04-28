@@ -78,13 +78,13 @@ export default function TeamPage() {
                                 <Quote size={48} color="#00C2A8" className="shrink-0 rotate-180 opacity-60" />
                             </div>
                             <blockquote className="text-2xl md:text-3xl font-bold font-heading text-navy leading-tight mb-10">
-                                At NIAMBIO, our vision is Empowering life sciences innovation through data-driven diagnostics development, commercialization, and patient access.
+                                At NIAMBIO, our mission is “Empowering life sciences innovation through data-driven diagnostics development, commercialization, and patient access”
                             </blockquote>
                         </div>
 
                         <div className="text-navy/70 space-y-6 text-lg leading-relaxed">
                             <p>
-                                Amit Jain brings over <strong>25 years of global experience</strong> in in vitro diagnostic (IVD) development and commercialization, with a strong track record across oncology, infectious diseases, general medicine, and digital health.
+                                Amit K. Jain brings over <strong>25+ years of global experience</strong> in in vitro diagnostic (IVD) development and commercialization, with a strong track record across oncology, infectious diseases, general medicine, and digital health.
                             </p>
                             <p>
                                 His career spans leadership roles in R&D, program management, business and corporate development, and strategic consulting. Most recently, Amit served as a senior leader in the Precision Medicine Practice at <strong>Veranex</strong>, where he supported biopharma, diagnostics, and digital health clients in market research and Rx/Dx strategy development.

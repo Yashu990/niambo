@@ -36,7 +36,7 @@ export default function Footer() {
                             />
                         </Link>
                         <p className="text-white/50 text-sm leading-relaxed max-w-xs mb-5">
-                            Empowering life sciences innovation through data-driven diagnostics development, commercialization, and patient access.
+                            Empowering life sciences innovators with expert guidance across every stage — from R&D through global commercial launch.
                         </p>
                         <div className="flex gap-3">
                             {[

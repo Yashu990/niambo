@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { TrendingUp, Globe, ArrowRight, Rss, Bell, Clock } from 'lucide-react'
 
@@ -71,100 +72,28 @@ export default function NewsPage() {
                 </div>
             </section>
 
-            {/* Main News Flow */}
-            <section className="section-padding bg-white">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16">
-                    {/* Feed Column */}
-                    <div className="lg:col-span-2 space-y-12">
-                        <div className="flex items-center justify-between pb-6 border-b border-navy/5">
-                            <h2 className="text-2xl font-bold font-heading text-navy flex items-center gap-3">
-                                <Rss size={24} className="text-teal" /> Latest Feed
+            {/* Coming Soon Section */}
+            <section className="section-padding bg-white min-h-[40vh] flex items-center">
+                <div className="max-w-4xl mx-auto text-center">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="bg-grey rounded-[3rem] p-12 md:p-20 border border-navy/5 relative overflow-hidden"
+                    >
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-teal/5 rounded-full blur-3xl pointer-events-none" />
+                        <div className="relative z-10">
+                            <h2 className="text-3xl md:text-5xl font-bold font-heading text-navy mb-6">
+                                Market Insights <span className="gradient-text">Coming Soon</span>
                             </h2>
-                            <div className="flex items-center gap-2 text-sm font-semibold text-navy/40">
-                                <span className="p-1.5 bg-green-500 rounded-full h-2 w-2 mr-1" /> Updated Just Now
-                            </div>
-                        </div>
-
-                        {marketUpdates.map((item, i) => (
-                            <motion.div 
-                                key={i}
-                                custom={i}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true }}
-                                variants={fadeUp}
-                                className="group flex flex-col md:flex-row gap-8 pb-10 border-b border-navy/5 last:border-0"
-                            >
-                                <div className="w-full md:w-32 flex-shrink-0 pt-1">
-                                    <div className="text-xs font-bold text-navy/30 uppercase tracking-widest mb-1">{item.date}</div>
-                                    <div className="text-teal font-black text-sm uppercase tracking-tighter">{item.source}</div>
-                                </div>
-                                <div className="flex-1">
-                                    <div className="flex flex-wrap gap-2 mb-3">
-                                        {item.tags.map(tag => (
-                                            <span key={tag} className="px-2.5 py-0.5 rounded-md bg-navy/5 text-navy/60 text-[10px] font-bold uppercase tracking-wider">
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-                                    <h3 className="text-2xl font-bold font-heading text-navy mb-4 group-hover:text-teal transition-colors leading-snug">
-                                        {item.title}
-                                    </h3>
-                                    <p className="text-navy/60 leading-relaxed mb-6">
-                                        {item.summary}
-                                    </p>
-                                    <button className="text-navy/80 hover:text-teal font-bold flex items-center gap-2 text-sm group-hover:gap-4 transition-all">
-                                        Full Story <ArrowRight size={16} />
-                                    </button>
-                                </div>
-                            </motion.div>
-                        ))}
-                        
-                        <div className="pt-6">
-                            <button className="w-full py-4 rounded-xl bg-grey font-bold text-navy/60 hover:text-navy hover:bg-teal/10 transition-all border border-navy/5">
-                                View Archive
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* Sidebar / Trending */}
-                    <aside className="space-y-12">
-                        <div className="bg-navy rounded-3xl p-8 border border-white/5 relative overflow-hidden">
-                            <TrendingUp className="text-teal mb-6" size={32} />
-                            <h3 className="text-xl font-bold font-heading text-white mb-4">Market Watch 2026</h3>
-                            <div className="space-y-6">
-                                {[
-                                    { label: 'APAC Growth', val: '+4.2%', color: 'text-green-400' },
-                                    { label: 'Global MedTech', val: '+2.8%', color: 'text-green-400' },
-                                    { label: 'EU Regulatory Gap', val: '-1.4%', color: 'text-rose-400' },
-                                ].map((stat, i) => (
-                                    <div key={i} className="flex justify-between items-center bg-white/5 p-4 rounded-xl border border-white/5">
-                                        <span className="text-white/60 text-sm font-semibold">{stat.label}</span>
-                                        <span className={`${stat.color} font-bold`}>{stat.val}</span>
-                                    </div>
-                                ))}
-                            </div>
-                            <button className="w-full mt-8 btn-primary text-sm py-4">Download Q1 Forecast</button>
-                        </div>
-
-                        <div className="bg-grey rounded-3xl p-8 border border-navy/5">
-                            <div className="flex items-center gap-3 mb-6">
-                                <span className="bg-teal/20 p-2 rounded-lg"><Bell size={20} className="text-teal" /></span>
-                                <h3 className="text-xl font-bold font-heading text-navy">Alert Me</h3>
-                            </div>
-                            <p className="text-navy/50 text-sm mb-6 leading-loose">
-                                Receive customized market alerts based on your specialized interests.
+                            <p className="text-navy/60 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+                                We're curating a premium selection of market updates, regulatory shifts, and commercial trends. Stay tuned for deep industry dives and strategic analysis.
                             </p>
-                            <div className="space-y-4">
-                                <input 
-                                    type="email" 
-                                    placeholder="your@email.com" 
-                                    className="w-full px-5 py-3 rounded-xl bg-white border border-navy/10 outline-none focus:border-teal" 
-                                />
-                                <button className="w-full btn-outline text-sm">Create Alert</button>
-                            </div>
+                            <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
+                                Get Notified <ArrowRight size={18} />
+                            </Link>
                         </div>
-                    </aside>
+                    </motion.div>
                 </div>
             </section>
         </>
