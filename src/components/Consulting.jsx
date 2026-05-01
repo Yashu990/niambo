@@ -22,7 +22,7 @@ const fadeRight = {
 
 export default function Consulting() {
     return (
-        <section id="consulting" className="section-padding bg-white overflow-hidden">
+        <section id="consulting" className="section-padding bg-transparent overflow-hidden">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 {/* Left: visual */}
                 <motion.div
@@ -75,13 +75,13 @@ export default function Consulting() {
                     viewport={{ once: true, amount: 0.2 }}
                     variants={fadeRight}
                 >
-                    <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-5">
+                    <span className="inline-block px-4 py-1.5 rounded-full glassmorphism text-teal text-sm font-semibold mb-5">
                         Our Services
                     </span>
-                    <h2 className="text-4xl font-bold font-heading text-navy mb-5 leading-tight">
+                    <h2 className="text-4xl font-bold font-heading text-white mb-5 leading-tight">
                         Strategic Consulting
                     </h2>
-                    <p className="text-navy/60 leading-relaxed mb-8 text-base">
+                    <p className="text-white/60 leading-relaxed mb-8 text-base">
                         Our team of subject matter experts supports innovators in R&D strategy, regulatory
                         navigation, market access, and commercial launch across global markets.
                     </p>
@@ -94,7 +94,7 @@ export default function Consulting() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.1 * i, duration: 0.4 }}
-                                className="flex items-center gap-3 text-navy/80 font-medium"
+                                className="flex items-center gap-3 text-white/80 font-medium"
                             >
                                 <CheckCircle2 size={20} color="#00C2A8" className="shrink-0" />
                                 {b}

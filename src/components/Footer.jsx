@@ -22,17 +22,17 @@ const footerLinks = {
 
 export default function Footer() {
     return (
-        <footer className="bg-navy text-white">
+        <footer className="bg-navy text-white border-t border-white/10">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pt-16 pb-8">
                 {/* Top */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
                     {/* Brand */}
                     <div className="lg:col-span-2">
-                        <Link to="/" className="flex items-center mb-6 group w-fit">
+                        <Link to="/" className="flex items-center mb-6 group w-fit bg-white px-2 py-1 rounded-lg shadow-sm transition-all duration-300 hover:shadow-md">
                             <img
                                 src="/niambio-logo.png"
                                 alt="NIAMBIO Logo"
-                                className="h-12 md:h-14 w-auto object-contain group-hover:scale-105 transition-all duration-300 drop-shadow-sm brightness-110"
+                                className="h-10 md:h-12 w-auto object-contain transition-all duration-300"
                             />
                         </Link>
                         <p className="text-white/50 text-sm leading-relaxed max-w-xs mb-5">
@@ -40,15 +40,16 @@ export default function Footer() {
                         </p>
                         <div className="flex gap-3">
                             {[
-                                { s: 'LI', href: '#' },
-                                { s: 'TW', href: '#' },
-                                { s: 'YT', href: 'https://www.youtube.com/@Precision_Pulse_with_Amit' },
-                            ].map(({ s, href }) => (
+                                { s: 'LI', href: '#', bg: '#0077B5' },
+                                { s: 'TW', href: '#', bg: '#1DA1F2' },
+                                { s: 'YT', href: 'https://www.youtube.com/@Precision_Pulse_with_Amit', bg: '#FF0000' },
+                            ].map(({ s, href, bg }) => (
                                 <a
                                     key={s}
                                     href={href}
                                     id={`footer-social-${s.toLowerCase()}`}
-                                    className="w-9 h-9 rounded-full glassmorphism flex items-center justify-center text-xs font-bold hover:bg-teal/30 transition-colors"
+                                    className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg transition-all hover:-translate-y-1 hover:brightness-110"
+                                    style={{ backgroundColor: bg }}
                                 >
                                     {s}
                                 </a>

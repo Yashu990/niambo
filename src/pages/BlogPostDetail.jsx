@@ -84,7 +84,7 @@ export default function BlogPostDetail() {
     }
 
     return (
-        <article className="bg-white min-h-screen">
+        <article className="bg-navy min-h-screen">
             {/* Header / Hero */}
             <section className="pt-44 pb-20 px-6 md:px-12 lg:px-20 gradient-bg relative overflow-hidden">
                 <div className="max-w-4xl mx-auto relative z-10">
@@ -124,19 +124,18 @@ export default function BlogPostDetail() {
                         {/* Body Text */}
                         <div className="flex-1 blog-content prose prose-lg prose-teal">
                             <div dangerouslySetInnerHTML={{ __html: post.content }} />
-                            
-                            <div className="mt-16 pt-8 border-t border-navy/5 flex items-center justify-between">
+                            <div className="mt-16 pt-8 border-t border-white/10 flex items-center justify-between">
                                 <div className="flex gap-4">
-                                    <button className="flex items-center gap-2 text-navy/40 hover:text-teal transition-colors font-bold text-sm">
+                                    <button className="flex items-center gap-2 text-white/40 hover:text-teal transition-colors font-bold text-sm">
                                         <Share2 size={18} /> Share
                                     </button>
-                                    <button className="flex items-center gap-2 text-navy/40 hover:text-teal transition-colors font-bold text-sm">
+                                    <button className="flex items-center gap-2 text-white/40 hover:text-teal transition-colors font-bold text-sm">
                                         <MessageCircle size={18} /> Comment
                                     </button>
                                 </div>
                                 <div className="flex gap-2">
                                     {["Nanotech", "HealthTech", "2026"].map(tag => (
-                                        <span key={tag} className="px-3 py-1 bg-grey rounded-full text-[10px] font-bold text-navy/30 uppercase tracking-widest leading-none">
+                                        <span key={tag} className="px-3 py-1 bg-white/5 rounded-full text-[10px] font-bold text-white/40 uppercase tracking-widest leading-none">
                                             #{tag}
                                         </span>
                                     ))}
@@ -147,21 +146,21 @@ export default function BlogPostDetail() {
                         {/* Sticky Sidebar */}
                         <aside className="w-full lg:w-72">
                             <div className="sticky top-32 space-y-10">
-                                <div className="bg-grey rounded-3xl p-8 border border-navy/5 text-center">
-                                    <h4 className="text-navy font-bold mb-4">About the Author</h4>
+                                <div className="glassmorphism rounded-3xl p-8 border border-white/10 text-center">
+                                    <h4 className="text-white font-bold mb-4">About the Author</h4>
                                     <img src={post.authorImage} alt={post.author} className="w-20 h-20 rounded-full mx-auto mb-4 object-cover" />
-                                    <p className="text-navy/60 text-sm mb-6 leading-relaxed">
+                                    <p className="text-white/70 text-sm mb-6 leading-relaxed">
                                         Dr. Chen is a senior advisor at Niambio with over 15 years of experience in clinical molecular diagnostics.
                                     </p>
                                     <button className="text-teal font-bold text-sm hover:underline">View Profile</button>
                                 </div>
 
                                 <div className="space-y-4">
-                                    <h4 className="text-navy font-bold px-2">Related Articles</h4>
+                                    <h4 className="text-white font-bold px-2">Related Articles</h4>
                                     {blogPosts.filter(p => p.slug !== slug).map(rel => (
-                                        <Link key={rel.slug} to={`/blog/${rel.slug}`} className="block p-4 rounded-2xl hover:bg-grey transition-colors group">
+                                        <Link key={rel.slug} to={`/blog/${rel.slug}`} className="block p-4 rounded-2xl hover:bg-white/5 transition-colors group">
                                             <div className="text-[10px] text-teal font-bold uppercase tracking-widest mb-1">{rel.category}</div>
-                                            <h5 className="text-sm font-bold text-navy group-hover:text-teal transition-colors line-clamp-2">{rel.title}</h5>
+                                            <h5 className="text-sm font-bold text-white group-hover:text-teal transition-colors line-clamp-2">{rel.title}</h5>
                                         </Link>
                                     ))}
                                 </div>

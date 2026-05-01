@@ -46,25 +46,25 @@ export default function Navbar() {
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${hasBg
-                    ? 'bg-navy/90 backdrop-blur-md shadow-lg border-b border-white/10'
-                    : 'bg-transparent'
+                ? 'bg-navy/90 backdrop-blur-md shadow-lg border-b border-white/10'
+                : 'bg-transparent'
                 }`}
         >
             <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
                 {/* Logo */}
-                <Link to="/" className="flex items-center flex-shrink-0 group">
+                <Link to="/" className="flex items-center flex-shrink-0 group bg-white px-2 py-1 rounded-lg shadow-sm transition-all duration-300 hover:shadow-md">
                     <img
                         src="/niambio-logo.png"
                         alt="NIAMBIO Logo"
-                        className="h-12 md:h-14 w-auto object-contain group-hover:scale-105 transition-all duration-300 drop-shadow-sm"
+                        className="h-10 md:h-12 w-auto object-contain transition-all duration-300"
                     />
                 </Link>
 
                 {/* Desktop nav */}
                 <ul className="hidden lg:flex items-center gap-2">
                     {navigation.map((item) => (
-                        <li 
-                            key={item.label} 
+                        <li
+                            key={item.label}
                             className="relative group/nav"
                             onMouseEnter={() => setActiveDropdown(item.label)}
                             onMouseLeave={() => setActiveDropdown(null)}
@@ -72,9 +72,8 @@ export default function Navbar() {
                             {item.children ? (
                                 <>
                                     <button
-                                        className={`flex items-center gap-1.5 px-4 py-2 text-sm font-medium transition-colors ${
-                                            activeDropdown === item.label ? 'text-teal' : 'text-white/70 hover:text-white'
-                                        }`}
+                                        className={`flex items-center gap-1.5 px-4 py-2 text-sm font-medium transition-colors ${activeDropdown === item.label ? 'text-teal' : 'text-white/70 hover:text-white'
+                                            }`}
                                     >
                                         {item.label}
                                         <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === item.label ? 'rotate-180' : ''}`} />
@@ -83,29 +82,30 @@ export default function Navbar() {
                                     <AnimatePresence>
                                         {activeDropdown === item.label && (
                                             <motion.div
-                                                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                                initial={{ opacity: 0, y: 8, scale: 0.97 }}
                                                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                                                exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                                                transition={{ duration: 0.2 }}
-                                                className="absolute top-full left-1/2 -translate-x-1/2 w-80 pt-4"
+                                                exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                                                transition={{ duration: 0.18 }}
+                                                className="absolute top-full left-1/2 -translate-x-1/2 w-72 pt-3"
                                             >
-                                                <div className="bg-white rounded-2xl shadow-2xl border border-navy/5 overflow-hidden p-3 grid gap-1">
+                                                <div className="rounded-2xl shadow-2xl border border-white/10 overflow-hidden p-2 grid gap-1"
+                                                    style={{ background: 'rgba(5, 15, 40, 0.97)', backdropFilter: 'blur(20px)' }}
+                                                >
                                                     {item.children.map((child) => (
                                                         <NavLink
                                                             key={child.label}
                                                             to={child.path}
                                                             className={({ isActive }) =>
-                                                                `flex items-start gap-4 p-3 rounded-xl transition-all duration-200 group/item ${
-                                                                    isActive ? 'bg-teal/5' : 'hover:bg-grey'
+                                                                `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group/item ${isActive ? 'bg-teal/10 text-teal' : 'hover:bg-white/8 text-white/80 hover:text-white'
                                                                 }`
                                                             }
                                                         >
-                                                            <div className="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center text-teal group-hover/item:bg-teal group-hover/item:text-white transition-colors">
-                                                                <child.icon size={20} />
+                                                            <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-teal group-hover/item:bg-teal group-hover/item:text-white transition-all duration-200 flex-shrink-0">
+                                                                <child.icon size={18} />
                                                             </div>
                                                             <div>
-                                                                <div className="text-sm font-bold text-navy mb-0.5">{child.label}</div>
-                                                                <div className="text-[11px] text-navy/40 font-medium leading-tight">{child.desc}</div>
+                                                                <div className="text-sm font-semibold mb-0.5">{child.label}</div>
+                                                                <div className="text-[11px] text-white/40 leading-tight">{child.desc}</div>
                                                             </div>
                                                         </NavLink>
                                                     ))}
@@ -119,14 +119,13 @@ export default function Navbar() {
                                     to={item.path}
                                     end={item.path === '/'}
                                     className={({ isActive }) =>
-                                        `px-4 py-2 text-sm font-medium transition-colors relative block ${
-                                            isActive ? 'text-teal' : 'text-white/70 hover:text-white'
+                                        `px-4 py-2 text-sm font-medium transition-colors relative block ${isActive ? 'text-teal' : 'text-white/70 hover:text-white'
                                         }`
                                     }
                                 >
                                     {item.label}
                                     {location.pathname === item.path && (
-                                        <motion.span 
+                                        <motion.span
                                             layoutId="activeTab"
                                             className="absolute bottom-1 left-4 right-4 h-0.5 bg-teal rounded-full"
                                         />
@@ -143,7 +142,7 @@ export default function Navbar() {
                         onClick={() => navigate('/contact')}
                         className="btn-primary text-sm"
                     >
-                        Get Consulting
+                        Contact us
                     </button>
                 </div>
 
@@ -178,8 +177,7 @@ export default function Navbar() {
                                                         to={child.path}
                                                         onClick={() => setMobileOpen(false)}
                                                         className={({ isActive }) =>
-                                                            `flex items-center gap-3 p-3 rounded-xl transition-colors ${
-                                                                isActive ? 'bg-teal/10 text-teal' : 'text-white/70 hover:bg-white/5'
+                                                            `flex items-center gap-3 p-3 rounded-xl transition-colors ${isActive ? 'bg-teal/10 text-teal' : 'text-white/70 hover:bg-white/5'
                                                             }`
                                                         }
                                                     >
@@ -194,8 +192,7 @@ export default function Navbar() {
                                             to={item.path}
                                             onClick={() => setMobileOpen(false)}
                                             className={({ isActive }) =>
-                                                `block p-3 rounded-xl font-medium transition-colors ${
-                                                    isActive ? 'bg-teal/10 text-teal' : 'text-white/70 hover:bg-white/5'
+                                                `block p-3 rounded-xl font-medium transition-colors ${isActive ? 'bg-teal/10 text-teal' : 'text-white/70 hover:bg-white/5'
                                                 }`
                                             }
                                         >
@@ -209,7 +206,7 @@ export default function Navbar() {
                                     onClick={() => { navigate('/contact'); setMobileOpen(false) }}
                                     className="btn-primary text-sm w-full"
                                 >
-                                    Get Consulting
+                                    Contact us
                                 </button>
                             </li>
                         </ul>

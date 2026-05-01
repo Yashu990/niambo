@@ -73,20 +73,20 @@ export default function NewsPage() {
             </section>
 
             {/* Coming Soon Section */}
-            <section className="section-padding bg-white min-h-[40vh] flex items-center">
+            <section className="section-padding bg-transparent min-h-[40vh] flex items-center">
                 <div className="max-w-4xl mx-auto text-center">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="bg-grey rounded-[3rem] p-12 md:p-20 border border-navy/5 relative overflow-hidden"
+                        className="glassmorphism rounded-[3rem] p-12 md:p-20 border border-white/10 relative overflow-hidden"
                     >
                         <div className="absolute top-0 right-0 w-64 h-64 bg-teal/5 rounded-full blur-3xl pointer-events-none" />
                         <div className="relative z-10">
-                            <h2 className="text-3xl md:text-5xl font-bold font-heading text-navy mb-6">
+                            <h2 className="text-3xl md:text-5xl font-bold font-heading text-white mb-6">
                                 Market Insights <span className="gradient-text">Coming Soon</span>
                             </h2>
-                            <p className="text-navy/60 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+                            <p className="text-white/70 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
                                 We're curating a premium selection of market updates, regulatory shifts, and commercial trends. Stay tuned for deep industry dives and strategic analysis.
                             </p>
                             <Link to="/contact" className="btn-primary inline-flex items-center gap-2">

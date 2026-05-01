@@ -158,8 +158,8 @@ export default function Hero() {
                         </div>
                         {/* Core */}
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-48 h-48 rounded-full shadow-2xl flex items-center justify-center bg-white overflow-hidden border-2 border-teal/20 p-6">
-                                <img src="/niambio-logo.png" alt="NIAMBIO Logo" className="w-full h-full object-contain" />
+                            <div className="w-48 h-48 rounded-full shadow-2xl flex items-center justify-center glassmorphism overflow-hidden border-2 border-teal/20 p-6">
+                                <img src="/niambio-logo.png" alt="NIAMBIO Logo" className="w-full h-full object-contain brightness-0 invert opacity-90" />
                             </div>
                         </div>
                         {/* Orbiting dots */}

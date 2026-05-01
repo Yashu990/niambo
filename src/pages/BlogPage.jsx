@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Search, Calendar, User, ArrowRight } from 'lucide-react'
+import { Search, Calendar, User, ArrowRight, Clock } from 'lucide-react'
 
 const blogPosts = [
     {
@@ -75,19 +75,19 @@ export default function BlogPage() {
             </section>
 
             {/* Newsletter & Search Area */}
-            <section className="bg-white py-12 border-b border-navy/5">
+            <section className="bg-transparent py-12 border-b border-white/10">
                 <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 flex flex-col md:flex-row justify-between items-center gap-8">
                     <div className="relative w-full md:max-w-md">
-                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-navy/30" size={20} />
+                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" size={20} />
                         <input 
                             type="text" 
                             placeholder="Search articles..." 
-                            className="w-full pl-12 pr-6 py-3 bg-grey rounded-full border-none focus:ring-2 focus:ring-teal/20 transition-all outline-none"
+                            className="w-full pl-12 pr-6 py-3 bg-white/5 text-white rounded-full border-none focus:ring-2 focus:ring-teal/20 transition-all outline-none"
                         />
                     </div>
                     <div className="flex gap-4 overflow-x-auto pb-2 w-full md:w-auto scrollbar-hide">
                         {["All", "Diagnostics", "Supply Chain", "Market Access", "Digital"].map((cat) => (
-                            <button key={cat} className="px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all border border-navy/10 hover:border-teal hover:text-teal">
+                            <button key={cat} className="px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all border text-gray-700 border-gray-200 hover:border-teal hover:text-teal hover:bg-teal/5">
                                 {cat}
                             </button>
                         ))}
@@ -96,7 +96,7 @@ export default function BlogPage() {
             </section>
 
             {/* Blog Grid */}
-            <section className="section-padding bg-grey">
+            <section className="section-padding bg-transparent">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                         {blogPosts.map((post, i) => (
@@ -107,7 +107,7 @@ export default function BlogPage() {
                                 whileInView="visible"
                                 viewport={{ once: true }}
                                 variants={fadeUp}
-                                className="bg-white rounded-3xl overflow-hidden shadow-sm border border-navy/5 hover:shadow-xl transition-all group flex flex-col h-full"
+                                className="glassmorphism rounded-3xl overflow-hidden shadow-sm border border-white/10 hover:shadow-xl transition-all group flex flex-col h-full"
                             >
                                 <Link to={`/blog/${post.slug}`} className="relative h-64 overflow-hidden block">
                                     <div className="absolute top-4 left-4 z-10">
@@ -122,19 +122,19 @@ export default function BlogPage() {
                                     />
                                 </Link>
                                 <div className="p-8 flex flex-col flex-1">
-                                    <div className="flex items-center gap-4 mb-4 text-xs text-navy/40 font-semibold">
+                                    <div className="flex items-center gap-4 mb-4 text-xs text-gray-400 font-semibold">
                                         <span className="flex items-center gap-1.5"><Calendar size={14} /> {post.date}</span>
                                         <span className="flex items-center gap-1.5"><User size={14} /> {post.author}</span>
                                     </div>
                                     <Link to={`/blog/${post.slug}`}>
-                                        <h3 className="text-2xl font-bold font-heading text-navy mb-4 group-hover:text-teal transition-colors">
+                                        <h3 className="text-2xl font-bold font-heading text-gray-900 mb-4 group-hover:text-teal transition-colors">
                                             {post.title}
                                         </h3>
                                     </Link>
-                                    <p className="text-navy/60 leading-relaxed mb-6 flex-1">
+                                    <p className="text-gray-600 leading-relaxed mb-6 flex-1">
                                         {post.excerpt}
                                     </p>
-                                    <Link to={`/blog/${post.slug}`} className="text-navy font-bold flex items-center gap-2 group/btn w-fit">
+                                    <Link to={`/blog/${post.slug}`} className="text-gray-900 font-bold flex items-center gap-2 group/btn w-fit">
                                         Read More <ArrowRight size={18} className="translate-x-0 group-hover/btn:translate-x-2 transition-transform text-teal" />
                                     </Link>
                                 </div>

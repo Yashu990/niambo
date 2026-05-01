@@ -18,7 +18,7 @@ export default function Contact() {
     }
 
     return (
-        <section id="contact" className="section-padding bg-white overflow-hidden">
+        <section id="contact" className="section-padding bg-transparent overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -27,11 +27,11 @@ export default function Contact() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-4">
+                    <span className="inline-block px-4 py-1.5 rounded-full glassmorphism text-teal text-sm font-semibold mb-4">
                         Get In Touch
                     </span>
-                    <h2 className="text-4xl font-bold font-heading text-navy mb-4">Contact Us</h2>
-                    <p className="text-navy/60 text-lg max-w-xl mx-auto">
+                    <h2 className="text-4xl font-bold font-heading text-white mb-4">Contact Us</h2>
+                    <p className="text-white/60 text-lg max-w-xl mx-auto">
                         Ready to accelerate your life sciences innovation? Reach out to our team.
                     </p>
                 </motion.div>
@@ -94,14 +94,14 @@ export default function Contact() {
                                 <div className="w-16 h-16 rounded-full bg-teal/10 flex items-center justify-center">
                                     <Send size={28} color="#00C2A8" />
                                 </div>
-                                <h3 className="text-2xl font-bold font-heading text-navy">Message Sent!</h3>
-                                <p className="text-navy/60">Thank you for reaching out. We'll get back to you within 24 hours.</p>
-                                <button onClick={() => setSent(false)} className="btn-outline mt-4">Send Another</button>
+                                <h3 className="text-2xl font-bold font-heading text-white">Message Sent!</h3>
+                                <p className="text-white/60">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+                                <button onClick={() => setSent(false)} className="btn-outline mt-4 border-white text-white hover:bg-white hover:text-navy">Send Another</button>
                             </div>
                         ) : (
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div>
-                                    <label className="block text-sm font-medium text-navy/70 mb-2" htmlFor="contact-name">
+                                    <label className="block text-sm font-medium text-white/70 mb-2" htmlFor="contact-name">
                                         Full Name
                                     </label>
                                     <input
@@ -111,11 +111,11 @@ export default function Contact() {
                                         placeholder="Your name"
                                         value={form.name}
                                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                                        className="w-full px-5 py-3.5 rounded-xl border-2 border-navy/10 outline-none focus:border-teal transition-colors text-navy bg-grey placeholder:text-navy/30 text-sm"
+                                        className="w-full px-5 py-3.5 rounded-xl border-2 border-white/10 outline-none focus:border-teal transition-colors text-white bg-white/5 placeholder:text-white/30 text-sm"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-navy/70 mb-2" htmlFor="contact-email">
+                                    <label className="block text-sm font-medium text-white/70 mb-2" htmlFor="contact-email">
                                         Email Address
                                     </label>
                                     <input
@@ -125,11 +125,11 @@ export default function Contact() {
                                         placeholder="your@email.com"
                                         value={form.email}
                                         onChange={(e) => setForm({ ...form, email: e.target.value })}
-                                        className="w-full px-5 py-3.5 rounded-xl border-2 border-navy/10 outline-none focus:border-teal transition-colors text-navy bg-grey placeholder:text-navy/30 text-sm"
+                                        className="w-full px-5 py-3.5 rounded-xl border-2 border-white/10 outline-none focus:border-teal transition-colors text-white bg-white/5 placeholder:text-white/30 text-sm"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-navy/70 mb-2" htmlFor="contact-message">
+                                    <label className="block text-sm font-medium text-white/70 mb-2" htmlFor="contact-message">
                                         Message
                                     </label>
                                     <textarea
@@ -139,17 +139,17 @@ export default function Contact() {
                                         placeholder="Tell us about your project or inquiry..."
                                         value={form.message}
                                         onChange={(e) => setForm({ ...form, message: e.target.value })}
-                                        className="w-full px-5 py-3.5 rounded-xl border-2 border-navy/10 outline-none focus:border-teal transition-colors text-navy bg-grey placeholder:text-navy/30 text-sm resize-none"
+                                        className="w-full px-5 py-3.5 rounded-xl border-2 border-white/10 outline-none focus:border-teal transition-colors text-white bg-white/5 placeholder:text-white/30 text-sm resize-none"
                                     />
                                 </div>
                                 <div>
                                     <label className="flex items-center gap-3 cursor-pointer group" htmlFor="contact-file">
-                                        <div className="w-10 h-10 rounded-xl border-2 border-dashed border-navy/20 group-hover:border-teal flex items-center justify-center transition-colors">
+                                        <div className="w-10 h-10 rounded-xl border-2 border-dashed border-white/20 group-hover:border-teal flex items-center justify-center transition-colors">
                                             <Paperclip size={16} color="#00C2A8" />
                                         </div>
                                         <div>
-                                            <div className="text-sm font-medium text-navy/70">Attach File</div>
-                                            <div className="text-xs text-navy/40">
+                                            <div className="text-sm font-medium text-white/70">Attach File</div>
+                                            <div className="text-xs text-white/40">
                                                 {form.file ? form.file.name : 'PDF, DOC, PNG (max 10MB)'}
                                             </div>
                                         </div>

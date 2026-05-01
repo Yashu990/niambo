@@ -4,7 +4,7 @@ import { Quote, Linkedin, Twitter, ArrowRight } from 'lucide-react'
 
 export default function Team() {
     return (
-        <section id="team" className="section-padding bg-grey overflow-hidden">
+        <section id="team" className="section-padding bg-transparent overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -13,10 +13,10 @@ export default function Team() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-4">
+                    <span className="inline-block px-4 py-1.5 rounded-full glassmorphism text-teal text-sm font-semibold mb-4">
                         Leadership
                     </span>
-                    <h2 className="text-4xl font-bold font-heading text-navy mb-4">Meet the Founder</h2>
+                    <h2 className="text-4xl font-bold font-heading text-white mb-4">Meet the Founder</h2>
                 </motion.div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -47,10 +47,10 @@ export default function Team() {
                             <motion.div
                                 animate={{ y: [0, -8, 0] }}
                                 transition={{ duration: 3, repeat: Infinity }}
-                                className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-4 shadow-xl"
+                                className="absolute -bottom-6 -right-6 glassmorphism border border-white/10 rounded-2xl p-4 shadow-xl"
                             >
-                                <div className="text-navy font-bold text-lg font-heading">25+ yrs</div>
-                                <div className="text-navy/50 text-xs">Industry Experience</div>
+                                <div className="text-white font-bold text-lg font-heading">25+ yrs</div>
+                                <div className="text-white/50 text-xs">Industry Experience</div>
                             </motion.div>
                         </div>
                     </motion.div>
@@ -65,11 +65,11 @@ export default function Team() {
                         <div className="flex items-start gap-3 mb-6">
                             <Quote size={40} color="#00C2A8" className="shrink-0 rotate-180 opacity-60" />
                         </div>
-                        <blockquote className="text-2xl font-semibold font-heading text-navy leading-relaxed mb-8">
+                        <blockquote className="text-2xl font-semibold font-heading text-white leading-relaxed mb-8">
                             At NIAMBIO, our mission is “Empowering life sciences innovation through data-driven diagnostics development, commercialization, and patient access”
                         </blockquote>
 
-                        <p className="text-navy/60 leading-relaxed mb-8 text-base">
+                        <p className="text-white/70 leading-relaxed mb-8 text-base">
                             Amit K. Jain brings over 25+ years of expertise in life sciences, diagnostics, and
                             biotech consulting. As the founder and CEO of NIAMBIO, he is dedicated to bridging the
                             gap between cutting-edge research and global market success.
@@ -86,18 +86,18 @@ export default function Team() {
                                 <a
                                     id="founder-linkedin"
                                     href="#"
-                                    className="w-10 h-10 rounded-full bg-navy/5 flex items-center justify-center hover:bg-teal/10 transition-colors"
+                                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-teal/20 transition-colors"
                                     aria-label="LinkedIn"
                                 >
-                                    <Linkedin size={18} color="#0B1F3A" />
+                                    <Linkedin size={18} color="#ffffff" />
                                 </a>
                                 <a
                                     id="founder-twitter"
                                     href="#"
-                                    className="w-10 h-10 rounded-full bg-navy/5 flex items-center justify-center hover:bg-teal/10 transition-colors"
+                                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-teal/20 transition-colors"
                                     aria-label="Twitter"
                                 >
-                                    <Twitter size={18} color="#0B1F3A" />
+                                    <Twitter size={18} color="#ffffff" />
                                 </a>
                             </div>
                         </div>

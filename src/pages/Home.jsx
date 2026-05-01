@@ -7,6 +7,9 @@ import {
     ArrowRight, ChevronDown, Database, TrendingUp, Globe,
 } from 'lucide-react'
 
+import podcastLogo from '../Podacast logo.png'
+import niambioLogo from '../check logo.png'
+
 /* ─── Shared animation variants ─── */
 const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -19,13 +22,13 @@ const ecosystemCards = [
         image: '/ecosystem-expert.png',
         title: 'Strategic Consulting',
         description:
-            'Empowering life sciences innovators with expert guidance across every stage — from R&D through global commercial launch.',
+            'Empowering life sciences innovation through data-driven diagnostics development, commercialization, and patient access.',
         color: '#00C2A8',
         glow: 'rgba(0,194,168,0.18)',
         link: '/consulting',
     },
     {
-        image: '/ecosystem-podcast.png',
+        image: podcastLogo,
         title: 'The Precision Pulse Podcast',
         description:
             'Exploring precision health, meditation science, diagnostics innovation and lifestyle transformation.',
@@ -50,19 +53,25 @@ const innovationBlocks = [
         icon: Database,
         title: 'Innovation Repository',
         description: 'Curated database of cutting-edge life sciences innovations and technologies.',
-        accent: '#00C2A8',
+        accent: '#ffffff',
+        bg: 'linear-gradient(135deg, #00C2A8 0%, #009E89 100%)',
+        shadow: 'rgba(0, 194, 168, 0.3)',
     },
     {
         icon: TrendingUp,
         title: 'Seed Fund Access',
         description: 'Dedicated seed capital to accelerate diagnostics and therapeutics breakthroughs',
-        accent: '#4FC3F7',
+        accent: '#ffffff',
+        bg: 'linear-gradient(135deg, #4FC3F7 0%, #1976D2 100%)',
+        shadow: 'rgba(79, 195, 247, 0.3)',
     },
     {
         icon: Globe,
         title: 'Global Expert Network',
         description: 'Collaborative ecosystem of scientists, clinicians, and biotech leaders.',
-        accent: '#6C63FF',
+        accent: '#ffffff',
+        bg: 'linear-gradient(135deg, #6C63FF 0%, #4B45B2 100%)',
+        shadow: 'rgba(108, 99, 255, 0.3)',
     },
 ]
 
@@ -115,19 +124,12 @@ export default function Home() {
                             <span className="text-teal text-sm font-medium">Expert Guidance</span>
                         </motion.div>
 
-                        <motion.h1
+                        <motion.h2
                             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-5xl md:text-7xl font-bold font-heading text-white leading-tight mb-6"
+                            className="text-2xl md:text-3xl lg:text-4xl font-bold font-heading text-white leading-tight mb-10 max-w-4xl"
                         >
-                            Strategic Consulting
-                        </motion.h1>
-
-                        <motion.p
-                            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-white/70 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl"
-                        >
-                            Empowering life sciences innovators with expert guidance across every stage — from R&D through global commercial launch
-                        </motion.p>
+                            Empowering <span className="gradient-text">life sciences innovation</span> through data-driven diagnostics development, commercialization, and patient access.
+                        </motion.h2>
 
 
 
@@ -135,8 +137,8 @@ export default function Home() {
                             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
                             className="flex flex-wrap gap-4 mt-4"
                         >
-                            <Link to="/consulting" id="hero-consulting" className="btn-primary flex items-center gap-2">
-                                Get Consulting <ArrowRight size={18} />
+                            <Link to="/contact" id="hero-consulting" className="btn-primary flex items-center gap-2">
+                                Contact us <ArrowRight size={18} />
                             </Link>
                             <Link to="/podcast" id="hero-podcast" className="btn-outline">
                                 Explore Podcast
@@ -182,8 +184,8 @@ export default function Home() {
                                 />
                             </div>
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-64 h-64 rounded-full shadow-2xl flex items-center justify-center bg-white overflow-hidden border-2 border-teal/20 p-8">
-                                    <img src="/niambio-logo.png" alt="NIAMBIO Logo" className="w-full h-full object-contain" />
+                                <div className="w-[300px] h-[300px] rounded-full bg-white shadow-2xl flex items-center justify-center p-10 overflow-hidden border-2 border-white/20">
+                                    <img src={niambioLogo} alt="NIAMBIO Logo" className="w-full h-auto object-contain" />
                                 </div>
                             </div>
                             {[0, 60, 120, 180, 240, 300].map((deg, i) => (
@@ -216,20 +218,19 @@ export default function Home() {
             </section>
 
             {/* ══════════════════ OUR OFFERINGS ══════════════════ */}
-            <section className="section-padding bg-grey relative overflow-hidden">
+            <section className="section-padding relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-64 h-64 bg-teal/5 rounded-full blur-3xl pointer-events-none" />
                 <div className="max-w-7xl mx-auto">
                     <motion.div
                         initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
                         variants={fadeUp} custom={0} className="text-center mb-16"
                     >
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-4">
+                        <span className="inline-block px-4 py-1.5 rounded-full glassmorphism text-teal text-sm font-semibold mb-4">
                             What We Offer
                         </span>
-                        <h2 className="text-4xl font-bold font-heading text-navy mb-4">Our Offerings</h2>
-                        <p className="text-navy/60 text-lg max-w-2xl mx-auto">
-                            A fully integrated platform built to accelerate life sciences innovation at every stage.
-                        </p>
+                        <h2 className="text-4xl font-bold font-heading text-gray-900 mb-4">Our Offerings</h2>
+                        <p className="text-gray-500 text-lg max-w-2xl mx-auto">A fully integrated platform built to accelerate life sciences innovation at every stage.</p>
+
                     </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -242,22 +243,26 @@ export default function Home() {
                                 viewport={{ once: true, amount: 0.2 }}
                                 variants={fadeUp}
                                 whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                                className="bg-white rounded-2xl overflow-hidden border border-navy/5 cursor-default group shadow-lg"
-                                style={{ boxShadow: `0 10px 40px ${card.glow}` }}
+                                className="glassmorphism rounded-2xl overflow-hidden cursor-default group flex flex-col h-full"
                             >
-                                <div className={`w-full h-56 overflow-hidden bg-white ${card.title.includes('Podcast') ? 'p-6' : ''}`}>
-                                    <img 
-                                        src={card.image} 
-                                        alt={card.title} 
-                                        className={`w-full h-full ${card.title.includes('Podcast') ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-500`}
+                                <div className={`w-full h-64 flex items-center justify-center overflow-hidden relative ${card.title.includes('Podcast') ? 'bg-[#000814] p-4' : ''}`}>
+                                    <div className="absolute inset-0 bg-gradient-to-b from-teal/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
+                                    <img
+                                        src={card.image}
+                                        alt={card.title}
+                                        className={`w-full h-full ${card.title.includes('Podcast') ? 'object-contain' : 'object-cover group-hover:scale-105 transition-transform duration-700'}`}
                                     />
                                 </div>
-                                <div className="p-8">
-                                    <h3 className="text-xl font-bold font-heading text-navy mb-3">{card.title}</h3>
-                                    <p className="text-navy/60 leading-relaxed text-sm mb-6">{card.description}</p>
+                                <div className="p-8 flex flex-col flex-grow">
+                                    <h3 className="text-xl font-bold font-heading text-gray-900 mb-3 group-hover:text-teal transition-colors">
+                                        {card.title}
+                                    </h3>
+                                    <p className="text-gray-500 leading-relaxed text-sm mb-6 flex-grow">
+                                        {card.description}
+                                    </p>
                                     <Link
                                         to={card.link}
-                                        className="inline-flex items-center gap-1.5 text-sm font-semibold"
+                                        className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors mt-auto w-max"
                                         style={{ color: card.color }}
                                     >
                                         Learn more <ArrowRight size={14} />
@@ -270,7 +275,7 @@ export default function Home() {
             </section>
 
             {/* ══════════════════ INNOVATION STRIP ══════════════════ */}
-            <section className="section-padding bg-navy relative overflow-hidden">
+            <section className="section-padding bg-transparent relative overflow-hidden">
                 <div className="absolute inset-0 opacity-[0.03]"
                     style={{
                         backgroundImage: 'linear-gradient(#00C2A8 1px,transparent 1px),linear-gradient(90deg,#00C2A8 1px,transparent 1px)',
@@ -282,11 +287,11 @@ export default function Home() {
                         initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}
                         className="text-center mb-14"
                     >
-                        <h2 className="text-4xl font-bold font-heading text-white mb-3">
+                        <h2 className="text-4xl font-bold font-heading text-gray-900 mb-3">
                             Accelerating Breakthrough{' '}
                             <span className="gradient-text">Bio-Technologies</span>
                         </h2>
-                        <p className="text-white/55 text-lg max-w-xl mx-auto">
+                        <p className="text-gray-600 text-lg max-w-xl mx-auto">
                             Infrastructure and connections to transform ideas into market-ready solutions.
                         </p>
                     </motion.div>
@@ -300,14 +305,27 @@ export default function Home() {
                                 whileInView="visible"
                                 viewport={{ once: true }}
                                 variants={fadeUp}
-                                whileHover={{ y: -8, transition: { duration: 0.25 } }}
-                                className="bg-white/5 border border-white/10 rounded-2xl p-8"
+                                whileHover={{
+                                    y: -10,
+                                    boxShadow: `0 25px 50px -12px ${b.shadow}`,
+                                }}
+                                className="border-0 rounded-3xl p-10 transition-all duration-300 group relative overflow-hidden"
+                                style={{ background: b.bg }}
                             >
-                                <div className="w-14 h-14 rounded-xl glassmorphism flex items-center justify-center mb-6">
-                                    <b.icon size={26} color={b.accent} strokeWidth={1.5} />
+                                {/* Decorative white glow */}
+                                <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
+
+                                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transition-all duration-500 group-hover:bg-white/20"
+                                    style={{ background: 'rgba(255, 255, 255, 0.15)', border: '1px solid rgba(255, 255, 255, 0.3)' }}>
+                                    <b.icon size={28} color="#ffffff" strokeWidth={2} />
                                 </div>
-                                <h3 className="text-xl font-bold font-heading text-white mb-3">{b.title}</h3>
-                                <p className="text-white/55 text-sm leading-relaxed">{b.description}</p>
+                                <h3 className="text-2xl font-bold font-heading text-white mb-4">
+                                    {b.title}
+                                </h3>
+                                <p className="text-white/80 text-sm leading-relaxed mb-6">
+                                    {b.description}
+                                </p>
+                                <div className="w-12 h-1.5 bg-white/30 rounded-full transition-all duration-300 group-hover:w-24 group-hover:bg-white" />
                             </motion.div>
                         ))}
                     </div>
@@ -324,7 +342,7 @@ export default function Home() {
             </section>
 
             {/* ══════════════════ CTA BANNER ══════════════════ */}
-            <section className="py-20 px-6 bg-grey">
+            <section className="py-20 px-6 bg-transparent">
                 <motion.div
                     initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}
                     className="max-w-4xl mx-auto text-center gradient-bg rounded-3xl p-14 relative overflow-hidden"

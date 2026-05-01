@@ -36,37 +36,35 @@ export default function ContactPage() {
                 </div>
             </section>
 
-            <section className="section-padding bg-white overflow-hidden">
+            <section className="section-padding bg-transparent overflow-hidden">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
                     {/* Left: info */}
                     <motion.div
                         initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }} transition={{ duration: 0.65 }}
                     >
-                        <div className="gradient-bg rounded-3xl p-10 h-full flex flex-col justify-between relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full blur-2xl pointer-events-none" />
+                        <div className="bg-white border border-gray-100 rounded-3xl p-10 shadow-xl h-full flex flex-col justify-between relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-48 h-48 bg-teal/5 rounded-full blur-2xl pointer-events-none" />
                             <div>
-                                <h3 className="text-2xl font-bold font-heading text-white mb-2">Contact Information</h3>
-                                <p className="text-white/50 mb-10 text-sm">Fill in the form and our team will be in touch within 24 hours.</p>
+                                <h3 className="text-2xl font-bold font-heading text-gray-900 mb-2">Contact Information</h3>
+                                <p className="text-gray-500 mb-10 text-sm">Fill in the form and our team will be in touch within 24 hours.</p>
                                 <div className="space-y-7">
                                     {contactInfo.map(({ icon: Icon, label, value }) => (
                                         <div key={label} className="flex items-start gap-4">
-                                            <div className="w-10 h-10 rounded-xl glassmorphism flex items-center justify-center shrink-0">
-                                                <Icon size={18} color="#00C2A8" />
+                                            <div className="w-10 h-10 rounded-xl bg-teal/5 flex items-center justify-center shrink-0">
+                                                <Icon size={18} className="text-teal" />
                                             </div>
                                             <div>
-                                                <div className="text-white/50 text-xs mb-0.5">{label}</div>
-                                                <div className="text-white font-medium">{value}</div>
+                                                <div className="text-gray-400 text-xs mb-0.5 font-bold uppercase tracking-widest">{label}</div>
+                                                <div className="text-gray-900 font-bold">{value}</div>
                                             </div>
                                         </div>
                                     ))}
                                 </div>
                             </div>
-                            <div className="flex gap-2 mt-10">
-                                {[...Array(5)].map((_, i) => (
-                                    <div key={i} className="w-2 h-2 rounded-full"
-                                        style={{ background: i < 3 ? '#00C2A8' : 'rgba(255,255,255,0.2)' }} />
-                                ))}
+                            <div className="pt-10">
+                                <div className="text-[11px] text-gray-400 font-bold uppercase tracking-widest mb-1">Response Time</div>
+                                <div className="text-gray-900 font-bold text-sm">Under 24 Hours</div>
                             </div>
                         </div>
                     </motion.div>
@@ -81,38 +79,38 @@ export default function ContactPage() {
                                 <div className="w-16 h-16 rounded-full bg-teal/10 flex items-center justify-center">
                                     <Send size={28} color="#00C2A8" />
                                 </div>
-                                <h3 className="text-2xl font-bold font-heading text-navy">Message Sent!</h3>
-                                <p className="text-navy/60">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+                                <h3 className="text-2xl font-bold font-heading text-gray-900">Message Sent!</h3>
+                                <p className="text-gray-500">Thank you for reaching out. We'll get back to you within 24 hours.</p>
                                 <button onClick={() => setSent(false)} className="btn-outline mt-4">Send Another</button>
                             </div>
                         ) : (
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div>
-                                    <label className="block text-sm font-medium text-navy/70 mb-2" htmlFor="contact-name">Full Name</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="contact-name">Full Name</label>
                                     <input id="contact-name" type="text" required placeholder="Your name"
                                         value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
-                                        className="w-full px-5 py-3.5 rounded-xl border-2 border-navy/10 outline-none focus:border-teal transition-colors text-navy bg-grey placeholder:text-navy/30 text-sm" />
+                                        className="w-full px-5 py-3.5 rounded-xl border-2 border-gray-200 outline-none focus:border-teal transition-colors text-gray-900 bg-white placeholder:text-gray-400 text-sm" />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-navy/70 mb-2" htmlFor="contact-email">Email Address</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="contact-email">Email Address</label>
                                     <input id="contact-email" type="email" required placeholder="your@email.com"
                                         value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
-                                        className="w-full px-5 py-3.5 rounded-xl border-2 border-navy/10 outline-none focus:border-teal transition-colors text-navy bg-grey placeholder:text-navy/30 text-sm" />
+                                        className="w-full px-5 py-3.5 rounded-xl border-2 border-gray-200 outline-none focus:border-teal transition-colors text-gray-900 bg-white placeholder:text-gray-400 text-sm" />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-navy/70 mb-2" htmlFor="contact-message">Message</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="contact-message">Message</label>
                                     <textarea id="contact-message" required rows={5} placeholder="Tell us about your project or inquiry..."
                                         value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
-                                        className="w-full px-5 py-3.5 rounded-xl border-2 border-navy/10 outline-none focus:border-teal transition-colors text-navy bg-grey placeholder:text-navy/30 text-sm resize-none" />
+                                        className="w-full px-5 py-3.5 rounded-xl border-2 border-gray-200 outline-none focus:border-teal transition-colors text-gray-900 bg-white placeholder:text-gray-400 text-sm resize-none" />
                                 </div>
                                 <div>
                                     <label className="flex items-center gap-3 cursor-pointer group" htmlFor="contact-file">
-                                        <div className="w-10 h-10 rounded-xl border-2 border-dashed border-navy/20 group-hover:border-teal flex items-center justify-center transition-colors">
+                                        <div className="w-10 h-10 rounded-xl border-2 border-dashed border-white/20 group-hover:border-teal flex items-center justify-center transition-colors">
                                             <Paperclip size={16} color="#00C2A8" />
                                         </div>
                                         <div>
-                                            <div className="text-sm font-medium text-navy/70">Attach File</div>
-                                            <div className="text-xs text-navy/40">{form.file ? form.file.name : 'PDF, DOC, PNG (max 10MB)'}</div>
+                                            <div className="text-sm font-medium text-gray-700">Attach File</div>
+                                            <div className="text-xs text-gray-400">{form.file ? form.file.name : 'PDF, DOC, PNG (max 10MB)'}</div>
                                         </div>
                                     </label>
                                     <input id="contact-file" type="file" className="hidden"
@@ -127,22 +125,22 @@ export default function ContactPage() {
                 </div>
             </section>
             
-            <section className="pb-32 px-6 bg-white overflow-hidden">
+            <section className="pb-32 px-6 bg-transparent overflow-hidden">
                 <div className="max-w-7xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="bg-grey rounded-[3rem] p-8 md:p-16 border border-navy/5 flex flex-col lg:flex-row items-center gap-12"
+                        className="glassmorphism rounded-[3rem] p-8 md:p-16 border border-white/10 flex flex-col lg:flex-row items-center gap-12"
                     >
                         <div className="flex-1 text-center lg:text-left">
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-bold mb-6">
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glassmorphism text-teal text-sm font-bold mb-6">
                                 <Calendar size={16} /> SCHEDULE A MEETING
                             </div>
-                            <h2 className="text-3xl md:text-4xl font-bold font-heading text-navy mb-6">
+                            <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900 mb-6">
                                 Let's Discuss Your <span className="gradient-text">Project</span>
                             </h2>
-                            <p className="text-navy/60 text-lg mb-10 max-w-xl">
+                            <p className="text-gray-600 text-lg mb-10 max-w-xl">
                                 Skip the form and book a direct consultation with our leadership team. 
                                 We're ready to explore how NIAMBIO can accelerate your bio-innovation journey.
                             </p>
@@ -151,8 +149,8 @@ export default function ContactPage() {
                             </a>
                         </div>
                         
-                        <div className="w-full lg:w-auto flex flex-col items-center gap-4 bg-white p-8 rounded-3xl shadow-xl border border-navy/5">
-                            <div className="w-48 h-48 rounded-2xl overflow-hidden bg-grey flex items-center justify-center p-2">
+                        <div className="w-full lg:w-auto flex flex-col items-center gap-4 glassmorphism p-8 rounded-3xl shadow-xl border border-white/10">
+                            <div className="w-48 h-48 rounded-2xl overflow-hidden bg-white flex items-center justify-center p-2">
                                 <img 
                                     src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://cal.com/akjain" 
                                     alt="Scan to schedule a meeting" 
@@ -160,8 +158,8 @@ export default function ContactPage() {
                                 />
                             </div>
                             <div className="text-center">
-                                <div className="text-navy font-bold text-sm">Scan to Book</div>
-                                <div className="text-navy/40 text-xs mt-1 font-medium">Open with your camera app</div>
+                                <div className="text-gray-900 font-bold text-sm">Scan to Book</div>
+                                <div className="text-gray-400 text-xs mt-1 font-medium">Open with your camera app</div>
                             </div>
                         </div>
                     </motion.div>

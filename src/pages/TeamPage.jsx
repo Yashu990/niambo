@@ -23,7 +23,7 @@ export default function TeamPage() {
                 </div>
             </section>
 
-            <section className="section-padding bg-grey overflow-hidden">
+            <section className="section-padding bg-transparent overflow-hidden">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }}
@@ -44,26 +44,37 @@ export default function TeamPage() {
                                     <div className="text-white/50 text-xs mt-2 uppercase tracking-widest font-bold">Boston, USA</div>
                                 </div>
                             </div>
-                            
+
                             <motion.div
                                 animate={{ y: [0, -10, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute -bottom-10 -right-10 bg-white rounded-3xl p-6 shadow-2xl border border-navy/5 hidden md:block"
+                                className="absolute -bottom-10 -right-10 glassmorphism rounded-3xl p-6 shadow-2xl border border-teal/20 hidden md:block"
                             >
-                                <div className="text-navy font-bold text-3xl font-heading mb-1">25+</div>
-                                <div className="text-navy/40 text-xs font-bold uppercase tracking-wider">Years of Global<br/>Experience</div>
+                                <div className="text-gray-900 font-bold text-3xl font-heading mb-1">25+</div>
+                                <div className="text-gray-500 text-xs font-bold uppercase tracking-wider">Years of Global<br />Experience</div>
                             </motion.div>
                         </div>
 
-                        <div className="mt-20 grid grid-cols-2 gap-6 max-w-[440px] mx-auto lg:mx-0">
-                            <div className="p-6 bg-white/50 rounded-2xl border border-navy/5">
-                                <GraduationCap className="text-teal mb-3" size={24} />
-                                <div className="text-navy font-bold text-sm mb-1">MBA</div>
-                                <div className="text-navy/50 text-[10px] leading-tight">Babson College,<br/>Massachusetts</div>
-                            </div>
-                            <div className="p-6 bg-white/50 rounded-2xl border border-navy/5">
-                                <Award className="text-teal mb-3" size={24} />
-                                <div className="text-navy font-bold text-sm mb-1">M.Sc. Genetics</div>
-                                <div className="text-navy/50 text-[10px] leading-tight">Haryana Agricultural<br/>University</div>
+                        <div className="mt-16">
+                            <h3 className="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] mb-6">Academic Background</h3>
+                            <div className="grid grid-cols-1 gap-4 max-w-[440px]">
+                                <div className="p-5 bg-white rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
+                                    <div className="w-12 h-12 rounded-xl bg-teal/5 flex items-center justify-center text-teal shrink-0">
+                                        <GraduationCap size={24} />
+                                    </div>
+                                    <div>
+                                        <div className="text-gray-900 font-bold text-sm">MBA</div>
+                                        <div className="text-gray-500 text-[11px]">Babson College, Massachusetts, USA</div>
+                                    </div>
+                                </div>
+                                <div className="p-5 bg-white rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
+                                    <div className="w-12 h-12 rounded-xl bg-teal/5 flex items-center justify-center text-teal shrink-0">
+                                        <Award size={24} />
+                                    </div>
+                                    <div>
+                                        <div className="text-gray-900 font-bold text-sm">M.Sc. Genetics</div>
+                                        <div className="text-gray-500 text-[11px]">Haryana Agricultural University, India</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </motion.div>
@@ -77,71 +88,90 @@ export default function TeamPage() {
                             <div className="flex items-start gap-3 mb-8">
                                 <Quote size={48} color="#00C2A8" className="shrink-0 rotate-180 opacity-60" />
                             </div>
-                            <blockquote className="text-2xl md:text-3xl font-bold font-heading text-navy leading-tight mb-10">
-                                At NIAMBIO, our mission is “Empowering life sciences innovation through data-driven diagnostics development, commercialization, and patient access”
+                            <blockquote className="text-2xl md:text-3xl font-bold font-heading text-gray-900 leading-tight mb-10">
+                                At NIAMBIO, our mission is "Empowering life sciences innovation through data-driven diagnostics development, commercialization, and patient access"
                             </blockquote>
                         </div>
 
-                        <div className="text-navy/70 space-y-6 text-lg leading-relaxed">
-                            <p>
-                                Amit K. Jain brings over <strong>25+ years of global experience</strong> in in vitro diagnostic (IVD) development and commercialization, with a strong track record across oncology, infectious diseases, general medicine, and digital health.
-                            </p>
-                            <p>
-                                His career spans leadership roles in R&D, program management, business and corporate development, and strategic consulting. Most recently, Amit served as a senior leader in the Precision Medicine Practice at <strong>Veranex</strong>, where he supported biopharma, diagnostics, and digital health clients in market research and Rx/Dx strategy development.
-                            </p>
-                            <p>
-                                Prior to Veranex, Amit was Managing Director at <strong>Diaceutics</strong>, and held leadership positions at <strong>Leica Biosystems</strong> and <strong>Immunetics</strong>, where he led companion diagnostics (CDx) development and global regulatory submission strategies.
-                            </p>
+                        <div className="text-gray-900 mb-6">
+                            <h1 className="text-3xl md:text-4xl font-extrabold font-heading mb-2">Amit K. Jain, MBA</h1>
+                            <p className="text-teal font-bold text-lg">Founder & President (Boston)</p>
                         </div>
 
-                        <div className="pt-8 border-t border-navy/5">
-                            <h3 className="text-xs font-bold text-navy/30 uppercase tracking-[0.2em] mb-8">Career Highlights</h3>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                {[
-                                    { label: 'Precision Medicine', sub: 'Veranex Practice Lead', icon: Target },
-                                    { label: 'Corporate Dev', sub: 'Diaceutics MD', icon: Briefcase },
-                                    { label: 'CDx Development', sub: 'Leica Biosystems', icon: Award },
-                                    { label: 'Global Strategy', sub: 'Regulatory Submission', icon: Globe },
-                                ].map((h, i) => (
-                                    <div key={i} className="flex items-center gap-4 group">
-                                        <div className="w-10 h-10 rounded-lg bg-teal/5 flex items-center justify-center text-teal group-hover:bg-teal group-hover:text-white transition-colors">
-                                            <h.icon size={18} />
-                                        </div>
-                                        <div>
-                                            <div className="text-sm font-bold text-navy">{h.label}</div>
-                                            <div className="text-[11px] text-navy/40 font-medium">{h.sub}</div>
-                                        </div>
+                        <div className="text-gray-700 space-y-6 text-[16px] leading-relaxed">
+                            <ul className="space-y-6">
+                                <li className="flex gap-4 group">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-teal mt-2.5 shrink-0 group-hover:scale-150 transition-transform" />
+                                    <span>Amit Jain brings over <strong>25 years of global experience</strong> in in vitro diagnostic (IVD) development and commercialization, with a strong track record across oncology, infectious diseases, general medicine, and digital health. His career spans leadership roles in R&D, program management, business and corporate development, and strategic consulting.</span>
+                                </li>
+                                <li className="flex gap-4 group">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-teal mt-2.5 shrink-0 group-hover:scale-150 transition-transform" />
+                                    <span>Most recently, Amit served as a senior leader in the Precision Medicine Practice at <strong>Veranex</strong>, where he played dual roles as Business Development Lead and Subject Matter Expert (SME). In this capacity, he supported biopharma, diagnostics, and digital health clients in market research, capability building, and Rx/Dx strategy development, guiding projects from early-stage innovation through commercialization.</span>
+                                </li>
+                                <li className="flex gap-4 group">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-teal mt-2.5 shrink-0 group-hover:scale-150 transition-transform" />
+                                    <span>Prior to Veranex, Amit was <strong>Managing Director at Diaceutics</strong>, leading corporate and business development initiatives while managing client engagement and delivery. Earlier, at <strong>Leica Biosystems</strong>, he directed companion diagnostics (CDx) development programs and led regulatory submission strategies for global markets.</span>
+                                </li>
+                                <li className="flex gap-4 group">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-teal mt-2.5 shrink-0 group-hover:scale-150 transition-transform" />
+                                    <span>At <strong>Immunetics</strong>, Amit headed Molecular Diagnostics programs for infectious diseases, successfully advancing IVD tests from concept to commercial launch in areas such as multi drug resistant bacteria, invasive fungal infections, and parasite identification.</span>
+                                </li>
+                                <li className="flex gap-4 group">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-teal mt-2.5 shrink-0 group-hover:scale-150 transition-transform" />
+                                    <span>Earlier in his career, Amit held client-facing technical consulting and application development roles with increasing responsibility at <strong>Febit</strong> and <strong>Kamtek Inc.</strong></span>
+                                </li>
+                            </ul>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-10">
+                                <div className="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+                                    <div className="text-teal font-bold text-xs uppercase tracking-widest mb-3">Core Expertise</div>
+                                    <div className="flex flex-wrap gap-2">
+                                        {['Rx/Dx Strategy', 'Market Access', 'IVD Development', 'Commercial Readiness', 'Regulatory Affairs'].map(tag => (
+                                            <span key={tag} className="px-3 py-1 bg-white border border-gray-200 rounded-full text-[11px] font-bold text-gray-600">{tag}</span>
+                                        ))}
                                     </div>
-                                ))}
+                                </div>
+                                <div className="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+                                    <div className="text-teal font-bold text-xs uppercase tracking-widest mb-3">Therapeutic Areas</div>
+                                    <div className="flex flex-wrap gap-2">
+                                        {['Oncology', 'Infectious Diseases', 'General Medicine', 'Digital Health'].map(tag => (
+                                            <span key={tag} className="px-3 py-1 bg-white border border-gray-200 rounded-full text-[11px] font-bold text-gray-600">{tag}</span>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="flex flex-wrap items-center gap-6 pt-6">
-                            <Link to="/contact" className="btn-primary flex items-center gap-2">
-                                Connect with Amit <ArrowRight size={18} />
-                            </Link>
-                            <div className="flex items-center gap-3">
-                                <a href="#" className="w-12 h-12 rounded-xl bg-white border border-navy/5 flex items-center justify-center hover:shadow-lg transition-all" aria-label="LinkedIn">
-                                    <Linkedin size={20} color="#0B1F3A" />
-                                </a>
-                                <a href="#" className="w-12 h-12 rounded-xl bg-white border border-navy/5 flex items-center justify-center hover:shadow-lg transition-all" aria-label="Twitter">
-                                    <Twitter size={20} color="#0B1F3A" />
-                                </a>
+                            <div className="pt-8 mt-10 border-t border-gray-100 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                                <div className="space-y-1">
+                                    <div className="text-[11px] text-gray-400 font-bold uppercase tracking-widest">Global Headquarters</div>
+                                    <div className="text-gray-900 font-bold text-sm">Boston, Massachusetts, USA</div>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <a href="https://www.linkedin.com/in/amitkjain/" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-xl bg-[#0077B5] flex items-center justify-center shadow-lg hover:shadow-[#0077B5]/40 transition-all hover:-translate-y-1">
+                                        <Linkedin size={18} color="#ffffff" />
+                                    </a>
+                                    <a href="#" className="w-11 h-11 rounded-xl bg-[#1DA1F2] flex items-center justify-center shadow-lg hover:shadow-[#1DA1F2]/40 transition-all hover:-translate-y-1">
+                                        <Twitter size={18} color="#ffffff" />
+                                    </a>
+                                    <Link to="/contact" className="btn-primary h-11 px-6 text-sm flex items-center">
+                                        Contact Amit
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </motion.div>
                 </div>
             </section>
 
-            <section className="py-24 px-6 bg-white relative overflow-hidden">
+            <section className="py-24 px-6 bg-transparent relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-teal/5 rounded-full blur-3xl" />
                 <motion.div
                     initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }} className="max-w-4xl mx-auto text-center relative z-10"
                 >
                     <span className="text-teal font-bold text-xs uppercase tracking-widest mb-4 inline-block">Collaborate</span>
-                    <h2 className="text-4xl md:text-5xl font-bold font-heading text-navy mb-6">Join Our Expert Network</h2>
-                    <p className="text-navy/60 text-lg mb-10 max-w-2xl mx-auto">
+                    <h2 className="text-4xl md:text-5xl font-bold font-heading text-gray-900 mb-6">Join Our Expert Network</h2>
+                    <p className="text-gray-500 text-lg mb-10 max-w-2xl mx-auto">
                         Are you a subject matter expert in life sciences, diagnostics, or biotech? We're always
                         looking to grow our network of exceptional professionals.
                     </p>

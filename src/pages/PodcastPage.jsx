@@ -79,7 +79,7 @@ function EpisodeCard({ ep, index }) {
             viewport={{ once: true, amount: 0.1 }}
             variants={fadeUp}
             id={`podcast-ep-${ep.num}`}
-            className="bg-white rounded-2xl overflow-hidden shadow-sm border border-navy/5 hover:shadow-xl transition-shadow duration-300"
+            className="glassmorphism rounded-2xl overflow-hidden border border-white/10"
         >
             {/* YouTube embed */}
             <div className="relative w-full aspect-video bg-navy">
@@ -106,14 +106,14 @@ function EpisodeCard({ ep, index }) {
                         href={`https://youtu.be/${ep.id}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-navy/40 hover:text-navy transition-colors"
+                        className="text-white/40 hover:text-white transition-colors"
                         aria-label="Open on YouTube"
                     >
                         <ExternalLink size={14} />
                     </a>
                 </div>
-                <h3 className="text-base font-bold font-heading text-navy mb-2 leading-snug">{ep.title}</h3>
-                <p className="text-navy/55 text-sm leading-relaxed">{ep.desc}</p>
+                <h3 className="text-base font-bold font-heading text-gray-900 mb-2 leading-snug">{ep.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{ep.desc}</p>
             </div>
         </motion.div>
     )
@@ -148,7 +148,7 @@ const PlatformIcon = ({ name, color }) => {
 
 export default function PodcastPage() {
     return (
-        <div className="bg-white">
+        <div className="bg-transparent">
             {/* ── Page Hero ── */}
             <section className="pt-44 pb-24 px-6 md:px-12 lg:px-20 gradient-bg relative overflow-hidden min-h-[60vh] flex flex-col justify-center">
                 <div className="absolute inset-0 opacity-[0.05]"
@@ -191,23 +191,23 @@ export default function PodcastPage() {
             </section>
 
             {/* ── About the Podcast ── */}
-            <section className="section-padding bg-grey">
+            <section className="section-padding bg-transparent">
                 <div className="max-w-5xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="bg-white rounded-3xl p-10 md:p-16 shadow-sm border border-navy/5"
+                        className="glassmorphism rounded-3xl p-10 md:p-16 shadow-sm border border-white/10"
                     >
-                        <h2 className="text-3xl font-bold font-heading text-navy mb-8 text-center">About the Show</h2>
-                        <div className="space-y-6 text-navy/70 text-lg leading-relaxed">
-                            <p className="text-xl font-medium text-navy">
+                        <h2 className="text-3xl font-bold font-heading text-gray-900 mb-8 text-center">About the Show</h2>
+                        <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
+                            <p className="text-xl font-medium text-gray-900">
                                 The Precision Pulse Podcast: Where science, technology, and everyday living converge through the lens of precision.
                             </p>
                             
                             <p>
-                                Hosted by <strong className="text-navy">Amit K. Jain (AJ)</strong>, The Precision Pulse explores how precision-driven thinking is reshaping healthcare, human performance, and the way we live. Each episode bridges cutting edge innovation with practical, real world impact—making complex ideas accessible, relevant, and actionable.
+                                Hosted by <strong className="text-gray-900">Amit K. Jain (AJ)</strong>, The Precision Pulse explores how precision-driven thinking is reshaping healthcare, human performance, and the way we live. Each episode bridges cutting edge innovation with practical, real world impact—making complex ideas accessible, relevant, and actionable.
                             </p>
 
                             <p>
@@ -221,7 +221,7 @@ export default function PodcastPage() {
                                     'The expanding role of data, real world evidence, and personalized care',
                                     'Practical strategies for mindset, physical health, and intentional living'
                                 ].map((item, idx) => (
-                                    <li key={idx} className="flex items-start gap-3 bg-grey/50 p-4 rounded-xl border border-navy/5">
+                                    <li key={idx} className="flex items-start gap-3 bg-gray-50 p-4 rounded-xl border border-gray-200">
                                         <div className="w-1.5 h-1.5 rounded-full bg-teal mt-2.5 shrink-0" />
                                         <span className="text-base font-medium leading-snug">{item}</span>
                                     </li>
@@ -240,8 +240,8 @@ export default function PodcastPage() {
                 </div>
             </section>
 
-            {/* ── Episodes Grid ── */}
-            <section className="section-padding bg-white">
+            {/* ── All Episodes Grid ── */}
+            <section className="section-padding bg-transparent">
                 <div className="max-w-7xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -249,8 +249,8 @@ export default function PodcastPage() {
                         viewport={{ once: true }}
                         className="text-center mb-14"
                     >
-                        <h2 className="text-3xl font-bold font-heading text-navy mb-3">Full Episodes</h2>
-                        <p className="text-navy/55">In-depth conversations with industry leaders</p>
+                        <h2 className="text-3xl font-bold font-heading text-gray-900 mb-3">Full Episodes</h2>
+                        <p className="text-gray-600">In-depth conversations with industry leaders</p>
                     </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
@@ -265,8 +265,8 @@ export default function PodcastPage() {
                         viewport={{ once: true }}
                         className="text-center mb-14"
                     >
-                        <h2 className="text-3xl font-bold font-heading text-navy mb-3">Precision Pulse Shorts</h2>
-                        <p className="text-navy/55">Quick insights and highlights from the show</p>
+                        <h2 className="text-3xl font-bold font-heading text-gray-900 mb-3">Precision Pulse Shorts</h2>
+                        <p className="text-gray-600">Quick insights and highlights from the show</p>
                     </motion.div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -298,7 +298,7 @@ export default function PodcastPage() {
             </section>
 
             {/* ── Appear on Podcast CTA ── */}
-            <section className="py-20 px-6 bg-grey">
+            <section className="py-20 px-6 bg-transparent">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}

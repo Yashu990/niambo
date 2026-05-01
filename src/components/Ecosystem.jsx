@@ -39,7 +39,7 @@ const fadeUp = {
 
 export default function Ecosystem() {
     return (
-        <section id="ecosystem" className="section-padding bg-grey relative overflow-hidden">
+        <section id="ecosystem" className="section-padding bg-transparent relative overflow-hidden">
             {/* Bg decoration */}
             <div className="absolute top-0 left-0 w-64 h-64 bg-teal/5 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 right-0 w-80 h-80 bg-lightblue/5 rounded-full blur-3xl pointer-events-none" />
@@ -53,11 +53,11 @@ export default function Ecosystem() {
                     custom={0}
                     className="text-center mb-16"
                 >
-                    <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-4">
+                    <span className="inline-block px-4 py-1.5 rounded-full glassmorphism text-teal text-sm font-semibold mb-4">
                         What We Do
                     </span>
-                    <h2 className="text-4xl font-bold font-heading text-navy mb-4">Our Ecosystem</h2>
-                    <p className="text-navy/60 text-lg max-w-2xl mx-auto">
+                    <h2 className="text-4xl font-bold font-heading text-white mb-4">Our Ecosystem</h2>
+                    <p className="text-white/60 text-lg max-w-2xl mx-auto">
                         A fully integrated platform built to accelerate life sciences innovation at every stage.
                     </p>
                 </motion.div>
@@ -73,19 +73,19 @@ export default function Ecosystem() {
                             variants={fadeUp}
                             whileHover={{ y: -10, transition: { duration: 0.3 } }}
                             id={`ecosystem-card-${i}`}
-                            className="bg-white rounded-2xl overflow-hidden border border-navy/5 cursor-default group shadow-lg"
+                            className="glassmorphism rounded-2xl overflow-hidden border border-white/10 cursor-default group shadow-lg"
                             style={{ boxShadow: `0 10px 40px ${card.glow}` }}
                         >
-                            <div className={`w-full h-56 overflow-hidden bg-white ${card.title.includes('Podcast') ? 'p-6' : ''}`}>
-                                <img 
-                                    src={card.image} 
-                                    alt={card.title} 
+                            <div className={`w-full h-56 overflow-hidden bg-transparent ${card.title.includes('Podcast') ? 'p-6' : ''}`}>
+                                <img
+                                    src={card.image}
+                                    alt={card.title}
                                     className={`w-full h-full ${card.title.includes('Podcast') ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-500`}
                                 />
                             </div>
                             <div className="p-8">
-                                <h3 className="text-xl font-bold font-heading text-navy mb-3">{card.title}</h3>
-                                <p className="text-navy/60 leading-relaxed text-sm">{card.description}</p>
+                                <h3 className="text-xl font-bold font-heading text-white mb-3">{card.title}</h3>
+                                <p className="text-white/60 leading-relaxed text-sm">{card.description}</p>
                                 <div className="mt-6 h-0.5 w-12 rounded-full" style={{ background: card.color }} />
                             </div>
                         </motion.div>
