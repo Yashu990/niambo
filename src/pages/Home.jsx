@@ -7,7 +7,7 @@ import {
     ArrowRight, ChevronDown, Database, TrendingUp, Globe,
 } from 'lucide-react'
 
-import podcastLogo from '../Podacast logo.png'
+import podcastJpeg from '../../dist/podcastimg.jpeg'
 import niambioLogo from '../check logo.png'
 
 /* ─── Shared animation variants ─── */
@@ -28,7 +28,7 @@ const ecosystemCards = [
         link: '/consulting',
     },
     {
-        image: podcastLogo,
+        image: podcastJpeg,
         title: 'The Precision Pulse Podcast',
         description:
             'Exploring precision health, meditation science, diagnostics innovation and lifestyle transformation.',
@@ -243,29 +243,28 @@ export default function Home() {
                                 viewport={{ once: true, amount: 0.2 }}
                                 variants={fadeUp}
                                 whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                                className="glassmorphism rounded-2xl overflow-hidden cursor-default group flex flex-col h-full"
+                                className="glassmorphism rounded-2xl overflow-hidden cursor-default group flex flex-col h-[520px]"
                             >
-                                <div className={`w-full h-64 flex items-center justify-center overflow-hidden relative ${card.title.includes('Podcast') ? 'bg-[#000814] p-4' : ''}`}>
+                                <div className={`w-full h-[350px] flex items-center justify-center overflow-hidden relative ${card.title.includes('Podcast') ? 'bg-[#000000]' : ''}`}>
                                     <div className="absolute inset-0 bg-gradient-to-b from-teal/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
                                     <img
                                         src={card.image}
                                         alt={card.title}
-                                        className={`w-full h-full ${card.title.includes('Podcast') ? 'object-contain' : 'object-cover group-hover:scale-105 transition-transform duration-700'}`}
+                                        className={`w-full h-full ${card.title.includes('Podcast') ? 'object-cover scale-100' : 'object-cover group-hover:scale-105 transition-transform duration-700'}`}
                                     />
                                 </div>
                                 <div className="p-8 flex flex-col flex-grow">
                                     <h3 className="text-xl font-bold font-heading text-gray-900 mb-3 group-hover:text-teal transition-colors">
                                         {card.title}
                                     </h3>
-                                    <p className="text-gray-500 leading-relaxed text-sm mb-6 flex-grow">
+                                    <p className={`text-gray-500 leading-relaxed text-sm mb-6 flex-grow min-h-[80px] ${card.title.includes('Venture') ? 'line-clamp-4' : ''}`}>
                                         {card.description}
                                     </p>
                                     <Link
                                         to={card.link}
-                                        className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors mt-auto w-max"
-                                        style={{ color: card.color }}
+                                        className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors mt-auto w-max text-teal hover:text-teal-dark"
                                     >
-                                        Learn more <ArrowRight size={14} />
+                                        Learn more <ArrowRight className="w-4 h-4" />
                                     </Link>
                                 </div>
                             </motion.div>
